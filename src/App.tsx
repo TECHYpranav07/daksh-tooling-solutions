@@ -7,10 +7,8 @@ import { MachinerySection } from '@/components/sections/MachinerySection'
 import { ProductsSection } from '@/components/sections/ProductsSection'
 import { ContactSection } from '@/components/sections/ContactSection'
 import { Footer } from '@/components/Footer'
-import { ExperienceOverlay } from '@/components/sections/ExperienceOverlay'
 
 export default function App() {
-  const [experienceOpen, setExperienceOpen] = useState(false)
   const [hubTab, setHubTab] = useState<'about' | 'capabilities' | 'quality'>('about')
 
   // Listen to hash changes or section clicks
@@ -25,17 +23,6 @@ export default function App() {
     window.addEventListener('hashchange', handleHashChange)
     return () => window.removeEventListener('hashchange', handleHashChange)
   }, [])
-
-  // Reset scroll position when returning from 3D experience
-  useEffect(() => {
-    if (!experienceOpen) {
-      document.body.style.overflow = ''
-    }
-  }, [experienceOpen])
-
-  if (experienceOpen) {
-    return <ExperienceOverlay onClose={() => setExperienceOpen(false)} />
-  }
 
   return (
     <>
@@ -53,8 +40,9 @@ export default function App() {
           <CompanyHubSection initialTab={hubTab} />
         </section>
 
+        {/* 3D EMBEDDED STICKY MANUFACTURING JOURNEY */}
         <section id="manufacturing-journey">
-          <ManufacturingJourneySection onLaunch={() => setExperienceOpen(true)} />
+          <ManufacturingJourneySection />
         </section>
 
         <section id="machinery">
