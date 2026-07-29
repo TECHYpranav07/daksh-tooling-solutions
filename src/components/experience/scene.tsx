@@ -26,6 +26,7 @@ const _look = new THREE.Vector3()
 
 function CameraRig({ freeMode }: { freeMode: boolean }) {
   useFrame((state, delta) => {
+    progressStore.smooth = THREE.MathUtils.damp(progressStore.smooth, progressStore.p, 6, delta)
     if (freeMode) return
     const v = progressToStageValue(progressStore.smooth)
     const i = Math.min(Math.floor(v), STAGE_COUNT - 1)

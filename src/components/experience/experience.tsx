@@ -171,22 +171,23 @@ export function Experience({ started }: ExperienceProps) {
   // ─── Trigger boot when the landing-page CTA is clicked ───────────────────
   useEffect(() => {
     if (started && !bootStarted) {
+      window.scrollTo(0, 0)
       startAudio()
       unlock()
       setBootStarted(true)
     }
   }, [started, bootStarted, startAudio, unlock])
 
-  // ─── Scroll tracking (active after boot) ─────────────────────────────────
+  // ─── Scroll tracking & wheel listener (active after boot) ────────────────
   useEffect(() => {
     if (!booted) return
 
     let raf = 0
-    const onScroll = () => {
+    const updateProgress = () => {
       cancelAnimationFrame(raf)
       raf = requestAnimationFrame(() => {
         const max = document.documentElement.scrollHeight - window.innerHeight
-        const p = max > 0 ? window.scrollY / max : 0
+        const p = max > 0 ? Math.max(0, Math.min(1, window.scrollY / max)) : 0
         progressStore.p = p
 
         const v = progressToStageValue(p)
@@ -199,18 +200,37 @@ export function Experience({ started }: ExperienceProps) {
       })
     }
 
-    window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll() // sync on mount
+    const onWheel = (e: WheelEvent) => {
+      // Forward wheel delta to window scroll for ultra-smooth responsiveness over fixed canvas
+      if (Math.abs(e.deltaY) > 0) {
+        window.scrollBy({ top: e.deltaY })
+      }
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive: true })
+    window.addEventListener('wheel', onWheel, { passive: true })
+    updateProgress() // sync on mount
+
     return () => {
-      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('scroll', updateProgress)
+      window.removeEventListener('wheel', onWheel)
       cancelAnimationFrame(raf)
     }
   }, [booted, playStage])
 
-  // ─── Lock scroll until boot completes ────────────────────────────────────
+  // ─── Manage scroll lock state ─────────────────────────────────────────────
   useEffect(() => {
-    document.documentElement.style.overflow = booted ? '' : 'hidden'
-    return () => { document.documentElement.style.overflow = '' }
+    if (!booted) {
+      document.documentElement.style.overflow = 'hidden'
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.documentElement.style.overflow = 'auto'
+      document.body.style.overflow = 'auto'
+    }
+    return () => {
+      document.documentElement.style.overflow = ''
+      document.body.style.overflow = ''
+    }
   }, [booted])
 
   const handleBooted = useCallback(() => {

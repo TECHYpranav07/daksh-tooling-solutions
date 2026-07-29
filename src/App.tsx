@@ -26,10 +26,9 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange)
   }, [])
 
-  // Lock body scroll when experience is open
+  // Reset scroll position when returning from 3D experience
   useEffect(() => {
-    document.body.style.overflow = experienceOpen ? 'hidden' : ''
-    return () => {
+    if (!experienceOpen) {
       document.body.style.overflow = ''
     }
   }, [experienceOpen])
