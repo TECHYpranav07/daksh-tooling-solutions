@@ -97,7 +97,6 @@ function useNarration() {
 
       stopCurrent()
 
-      // Small delay so fast scrolling doesn't stack utterances
       pendingTimerRef.current = setTimeout(() => {
         const utterance = new SpeechSynthesisUtterance(text)
         utterance.rate = 0.92
@@ -144,17 +143,7 @@ function useNarration() {
   return { narrationMuted, toggleNarration, unlock, playStage }
 }
 
-/** Scroll the page to the start of a given stage index (0-based) */
-function scrollToStage(targetIndex: number) {
-  // Place camera at 30% into the target stage so the transition reads clearly
-  const v = targetIndex + 0.3
-  const p = (v / STAGE_COUNT) * (1 - INTRO_FRACTION) + INTRO_FRACTION
-  const max = document.documentElement.scrollHeight - window.innerHeight
-  window.scrollTo({ top: p * max, behavior: 'smooth' })
-}
-
 interface ExperienceProps {
-  /** Flips to true when the user clicks the landing-page CTA */
   started: boolean
 }
 
@@ -168,85 +157,101 @@ export function Experience({ started }: ExperienceProps) {
   const { start: startAudio, muted, toggleMute } = useAmbience()
   const { narrationMuted, toggleNarration, unlock, playStage } = useNarration()
 
-  // ─── Trigger boot when the landing-page CTA is clicked ───────────────────
+  const progressRef = useRef(0)
+
+  // ─── Update progress helper ───────────────────────────────────────────────
+  const updateProgress = useCallback((newP: number) => {
+    const clampedP = Math.max(0, Math.min(1, newP))
+    progressRef.current = clampedP
+    progressStore.p = clampedP
+
+    const v = progressToStageValue(clampedP)
+    const idx = stageIndexFromValue(v)
+    setStageIndex(idx)
+    setPercent(Math.min((v / STAGE_COUNT) * 100, 100))
+    setIntroVisible(clampedP <= INTRO_FRACTION * 0.5)
+
+    if (v > 0) playStage(idx)
+  }, [playStage])
+
+  // ─── Trigger boot when started is true ───────────────────────────────────
   useEffect(() => {
     if (started && !bootStarted) {
-      window.scrollTo(0, 0)
+      updateProgress(0)
       startAudio()
       unlock()
       setBootStarted(true)
     }
-  }, [started, bootStarted, startAudio, unlock])
+  }, [started, bootStarted, startAudio, unlock, updateProgress])
 
-  // ─── Scroll tracking & wheel listener (active after boot) ────────────────
+  // ─── Direct Wheel, Touch, and Keyboard Event Controller ─────────────────
   useEffect(() => {
     if (!booted) return
 
-    let raf = 0
-    const updateProgress = () => {
-      cancelAnimationFrame(raf)
-      raf = requestAnimationFrame(() => {
-        const max = document.documentElement.scrollHeight - window.innerHeight
-        const p = max > 0 ? Math.max(0, Math.min(1, window.scrollY / max)) : 0
-        progressStore.p = p
-
-        const v = progressToStageValue(p)
-        const idx = stageIndexFromValue(v)
-        setStageIndex(idx)
-        setPercent(Math.min((v / STAGE_COUNT) * 100, 100))
-        setIntroVisible(p < 0.008)
-
-        if (v > 0) playStage(idx)
-      })
+    const handleWheel = (e: WheelEvent) => {
+      // Sensitivity: mouse wheel delta Y
+      const delta = e.deltaY * 0.0008
+      updateProgress(progressRef.current + delta)
     }
 
-    const onWheel = (e: WheelEvent) => {
-      // Forward wheel delta with multiplier for fast, responsive scrolling over fixed canvas
-      if (Math.abs(e.deltaY) > 0) {
-        window.scrollBy({ top: e.deltaY * 1.5 })
+    let touchStartY = 0
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY = e.touches[0].clientY
+    }
+    const handleTouchMove = (e: TouchEvent) => {
+      const touchY = e.touches[0].clientY
+      const deltaY = touchStartY - touchY
+      touchStartY = touchY
+      updateProgress(progressRef.current + deltaY * 0.002)
+    }
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault()
+        updateProgress(progressRef.current + 0.08)
+      } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+        e.preventDefault()
+        updateProgress(progressRef.current - 0.08)
       }
     }
 
-    window.addEventListener('scroll', updateProgress, { passive: true })
-    window.addEventListener('wheel', onWheel, { passive: true })
-    updateProgress() // sync on mount
+    window.addEventListener('wheel', handleWheel, { passive: true })
+    window.addEventListener('touchstart', handleTouchStart, { passive: true })
+    window.addEventListener('touchmove', handleTouchMove, { passive: true })
+    window.addEventListener('keydown', handleKeyDown)
 
     return () => {
-      window.removeEventListener('scroll', updateProgress)
-      window.removeEventListener('wheel', onWheel)
-      cancelAnimationFrame(raf)
+      window.removeEventListener('wheel', handleWheel)
+      window.removeEventListener('touchstart', handleTouchStart)
+      window.removeEventListener('touchmove', handleTouchMove)
+      window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [booted, playStage])
-
-  // ─── Manage scroll lock state ─────────────────────────────────────────────
-  useEffect(() => {
-    if (!booted) {
-      document.documentElement.style.overflow = 'hidden'
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.documentElement.style.overflow = 'auto'
-      document.body.style.overflow = 'auto'
-    }
-    return () => {
-      document.documentElement.style.overflow = ''
-      document.body.style.overflow = ''
-    }
-  }, [booted])
+  }, [booted, updateProgress])
 
   const handleBooted = useCallback(() => {
     setBooted(true)
-    setTimeout(() => playStage(0), 800)
+    setTimeout(() => playStage(0), 600)
   }, [playStage])
 
+  const scrollToStage = useCallback((targetIndex: number) => {
+    const v = targetIndex + 0.3
+    const p = (v / STAGE_COUNT) * (1 - INTRO_FRACTION) + INTRO_FRACTION
+    updateProgress(p)
+  }, [updateProgress])
+
   const handleNextStage = useCallback(() => {
-    const next = Math.min(stageIndex + 1, STAGE_COUNT - 1)
-    scrollToStage(next)
-  }, [stageIndex])
+    if (introVisible || progressRef.current <= INTRO_FRACTION * 0.5) {
+      scrollToStage(0)
+    } else {
+      const next = Math.min(stageIndex + 1, STAGE_COUNT - 1)
+      scrollToStage(next)
+    }
+  }, [introVisible, stageIndex, scrollToStage])
 
   const handlePrevStage = useCallback(() => {
     const prev = Math.max(stageIndex - 1, 0)
     scrollToStage(prev)
-  }, [stageIndex])
+  }, [stageIndex, scrollToStage])
 
   const handleStageClick = useCallback((index: number) => {
     setModalStage(STAGES[index])
@@ -258,9 +263,6 @@ export function Experience({ started }: ExperienceProps) {
 
   return (
     <main aria-label="Daksh Tooling — Precision Flow — interactive 3D manufacturing experience">
-      {/* Tall scroll track — creates the scrollable height */}
-      <div style={{ height: '1150vh' }} aria-hidden="true" />
-
       {/* Fixed 3D scene */}
       <div style={{ position: 'fixed', inset: 0, width: '100%', height: '100vh' }}>
         <WebGLErrorBoundary>

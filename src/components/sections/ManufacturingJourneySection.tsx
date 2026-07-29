@@ -1,259 +1,216 @@
-import { useEffect, useRef, useState, useCallback } from 'react'
-import { STAGES, STAGE_COUNT, type Stage } from '@/lib/stages'
-import { progressStore } from '@/lib/progress-store'
+import { STAGES } from '@/lib/stages'
+import { ArrowRight } from 'lucide-react'
 import { useThemeColors } from '@/hooks/useThemeColors'
-import { Scene } from '@/components/experience/scene'
-import { Hud } from '@/components/experience/hud'
-import { StageModal } from '@/components/experience/StageModal'
-import { WebGLErrorBoundary } from '@/components/experience/webgl-error-boundary'
 
-/** Synthesized industrial ambience via WebAudio */
-function useAmbience() {
-  const ctxRef = useRef<AudioContext | null>(null)
-  const gainRef = useRef<GainNode | null>(null)
-  const [muted, setMuted] = useState(true) // muted by default for main page
-
-  const start = useCallback(() => {
-    if (ctxRef.current) return
-    try {
-      const ctx = new AudioContext()
-      const master = ctx.createGain()
-      master.gain.value = 0.05
-      master.connect(ctx.destination)
-
-      for (const [freq, vol] of [[50, 1], [100, 0.4], [150, 0.15]] as const) {
-        const osc = ctx.createOscillator()
-        osc.type = 'sine'
-        osc.frequency.value = freq
-        const g = ctx.createGain()
-        g.gain.value = vol
-        osc.connect(g).connect(master)
-        osc.start()
-      }
-
-      const bufferSize = ctx.sampleRate * 2
-      const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate)
-      const data = buffer.getChannelData(0)
-      for (let i = 0; i < bufferSize; i++) data[i] = (Math.random() * 2 - 1) * 0.3
-      const noise = ctx.createBufferSource()
-      noise.buffer = buffer
-      noise.loop = true
-      const filter = ctx.createBiquadFilter()
-      filter.type = 'lowpass'
-      filter.frequency.value = 260
-      const ng = ctx.createGain()
-      ng.gain.value = 0.5
-      noise.connect(filter).connect(ng).connect(master)
-      noise.start()
-
-      ctxRef.current = ctx
-      gainRef.current = master
-    } catch {
-      // audio unavailable — continues silently
-    }
-  }, [])
-
-  const toggleMute = useCallback(() => {
-    setMuted((m) => {
-      const next = !m
-      if (!ctxRef.current) start()
-      if (gainRef.current && ctxRef.current) {
-        gainRef.current.gain.setTargetAtTime(next ? 0 : 0.05, ctxRef.current.currentTime, 0.1)
-      }
-      return next
-    })
-  }, [start])
-
-  return { toggleMute, muted }
+interface ManufacturingJourneySectionProps {
+  onLaunch: () => void
 }
 
-/** Stage-by-stage narration via Web Speech API */
-function useNarration() {
-  const [narrationMuted, setNarrationMuted] = useState(true)
-  const currentStageRef = useRef<number>(-1)
-  const pendingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-  const stopCurrent = useCallback(() => {
-    if (pendingTimerRef.current) {
-      clearTimeout(pendingTimerRef.current)
-      pendingTimerRef.current = null
-    }
-    if (typeof window !== 'undefined' && window.speechSynthesis) {
-      window.speechSynthesis.cancel()
-    }
-  }, [])
-
-  const speak = useCallback(
-    (text: string) => {
-      if (narrationMuted) return
-      if (!('speechSynthesis' in window)) return
-
-      stopCurrent()
-
-      pendingTimerRef.current = setTimeout(() => {
-        const utterance = new SpeechSynthesisUtterance(text)
-        utterance.rate = 0.92
-        utterance.pitch = 0.95
-        utterance.volume = 0.9
-
-        const voices = window.speechSynthesis.getVoices()
-        const preferred =
-          voices.find(
-            (v) =>
-              v.lang.startsWith('en') &&
-              (v.name.includes('Google') || v.name.includes('Daniel') || v.name.includes('Samantha')),
-          ) || voices.find((v) => v.lang.startsWith('en'))
-        if (preferred) utterance.voice = preferred
-
-        window.speechSynthesis.speak(utterance)
-      }, 600)
-    },
-    [narrationMuted, stopCurrent],
-  )
-
-  const toggleNarration = useCallback(() => {
-    setNarrationMuted((m) => {
-      const next = !m
-      if (next) stopCurrent()
-      return next
-    })
-  }, [stopCurrent])
-
-  const playStage = useCallback(
-    (index: number) => {
-      if (index === currentStageRef.current) return
-      currentStageRef.current = index
-      const stage = STAGES[index]
-      if (stage) speak(stage.narration)
-    },
-    [speak],
-  )
-
-  useEffect(() => () => { stopCurrent() }, [stopCurrent])
-
-  return { narrationMuted, toggleNarration, playStage }
-}
-
-export function ManufacturingJourneySection() {
+export function ManufacturingJourneySection({ onLaunch }: ManufacturingJourneySectionProps) {
   const c = useThemeColors()
-  const sectionRef = useRef<HTMLDivElement>(null)
-
-  const [stageIndex, setStageIndex] = useState(0)
-  const [percent, setPercent] = useState(0)
-  const [introVisible, setIntroVisible] = useState(true)
-  const [modalStage, setModalStage] = useState<Stage | null>(null)
-
-  const { muted, toggleMute } = useAmbience()
-  const { narrationMuted, toggleNarration, playStage } = useNarration()
-
-  // Track scroll progress through this sticky section
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return
-      const rect = sectionRef.current.getBoundingClientRect()
-      const totalScrollable = rect.height - window.innerHeight
-
-      if (totalScrollable <= 0) return
-
-      // Progress 0..1 inside this section
-      const progress = Math.max(0, Math.min(1, -rect.top / totalScrollable))
-      progressStore.p = progress
-
-      // Map progress to stage 0..9
-      const v = progress * STAGE_COUNT
-      const idx = Math.min(Math.floor(v), STAGE_COUNT - 1)
-
-      setStageIndex(idx)
-      setPercent(Math.min(progress * 100, 100))
-      setIntroVisible(progress < 0.02)
-
-      if (progress > 0.02) {
-        playStage(idx)
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [playStage])
-
-  // Scroll to a specific stage inside Section 03
-  const scrollToStage = useCallback((targetIndex: number) => {
-    if (!sectionRef.current) return
-    const rect = sectionRef.current.getBoundingClientRect()
-    const sectionTop = window.scrollY + rect.top
-    const totalScrollable = rect.height - window.innerHeight
-
-    const targetProgress = (targetIndex + 0.5) / STAGE_COUNT
-    const targetScrollY = sectionTop + targetProgress * totalScrollable
-
-    window.scrollTo({ top: targetScrollY, behavior: 'smooth' })
-  }, [])
-
-  const handleNextStage = useCallback(() => {
-    const next = Math.min(stageIndex + 1, STAGE_COUNT - 1)
-    scrollToStage(next)
-  }, [stageIndex, scrollToStage])
-
-  const handlePrevStage = useCallback(() => {
-    const prev = Math.max(stageIndex - 1, 0)
-    scrollToStage(prev)
-  }, [stageIndex, scrollToStage])
-
-  const handleStageClick = useCallback((index: number) => {
-    setModalStage(STAGES[index])
-  }, [])
-
-  const handleModalClose = useCallback(() => {
-    setModalStage(null)
-  }, [])
+  const previewStages = STAGES.slice(0, 3)
 
   return (
-    <div
-      ref={sectionRef}
-      style={{
-        position: 'relative',
-        height: '650vh', // 6.5 screens tall sticky scroll track
-        background: c.bg,
-      }}
-    >
-      {/* Sticky 3D Canvas Container */}
-      <div
-        style={{
-          position: 'sticky',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '100vh',
-          width: '100%',
-          overflow: 'hidden',
-        }}
-      >
-        {/* 3D Scene */}
-        <div style={{ position: 'absolute', inset: 0 }}>
-          <WebGLErrorBoundary>
-            <Scene />
-          </WebGLErrorBoundary>
+    <div style={{ paddingTop: '5rem', minHeight: '80vh', background: c.bgAlt }}>
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-12 py-20">
+        {/* Section Header */}
+        <div className="mb-16 text-center">
+          <div
+            style={{
+              fontFamily: 'monospace',
+              fontSize: '10px',
+              letterSpacing: '0.4em',
+              color: c.amber,
+              marginBottom: '1rem',
+            }}
+          >
+            SECTION 03
+          </div>
+          <h2
+            style={{
+              fontFamily: 'system-ui, -apple-system, sans-serif',
+              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+              fontWeight: 700,
+              letterSpacing: '-0.02em',
+              color: c.heading,
+              marginBottom: '1rem',
+            }}
+          >
+            Manufacturing Journey
+          </h2>
+          <p
+            style={{
+              fontFamily: 'monospace',
+              fontSize: '14px',
+              letterSpacing: '0.05em',
+              color: c.body,
+              maxWidth: '48rem',
+              margin: '0 auto',
+            }}
+          >
+            Walk through our 10-stage precision manufacturing process
+          </p>
         </div>
 
-        {/* HUD Controls & Stage Overlay */}
-        <Hud
-          stageIndex={stageIndex}
-          percent={percent}
-          visible={true}
-          introVisible={introVisible}
-          muted={muted}
-          narrationMuted={narrationMuted}
-          onToggleAmbience={toggleMute}
-          onToggleNarration={toggleNarration}
-          onNextStage={handleNextStage}
-          onPrevStage={handlePrevStage}
-          onStageClick={handleStageClick}
-        />
+        {/* Preview Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {previewStages.map((stage, index) => (
+            <div
+              key={stage.id}
+              data-testid={`journey-preview-${index}`}
+              style={{
+                background: c.bgCard,
+                border: `1px solid ${c.border}`,
+                padding: '2rem',
+                backdropFilter: 'blur(8px)',
+                transition: 'all 0.3s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = c.cyanA20
+                e.currentTarget.style.transform = 'translateY(-4px)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = c.border
+                e.currentTarget.style.transform = 'translateY(0)'
+              }}
+            >
+              <div className="hud-blink" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+                <span style={{ width: '6px', height: '6px', borderRadius: '9999px', background: c.cyan }} />
+                <span
+                  style={{
+                    fontFamily: 'monospace',
+                    fontSize: '9px',
+                    letterSpacing: '0.3em',
+                    color: c.cyan,
+                  }}
+                >
+                  {stage.code}
+                </span>
+              </div>
+              <h3
+                style={{
+                  fontFamily: 'system-ui, -apple-system, sans-serif',
+                  fontSize: '1.25rem',
+                  fontWeight: 600,
+                  color: c.heading,
+                  marginBottom: '0.5rem',
+                }}
+              >
+                {stage.title}
+              </h3>
+              <p
+                style={{
+                  fontFamily: 'monospace',
+                  fontSize: '11px',
+                  letterSpacing: '0.05em',
+                  color: c.body,
+                  marginBottom: '0.75rem',
+                }}
+              >
+                {stage.machine}
+              </p>
+              <div
+                style={{
+                  width: '100%',
+                  height: '1px',
+                  background: c.cyanA20,
+                  marginBottom: '0.75rem',
+                }}
+              />
+              <p
+                style={{
+                  fontFamily: 'monospace',
+                  fontSize: '10px',
+                  letterSpacing: '0.15em',
+                  color: c.cyan,
+                }}
+              >
+                {stage.operation}
+              </p>
+            </div>
+          ))}
+        </div>
 
-        {/* Stage Specification Modal */}
-        <StageModal stage={modalStage} onClose={handleModalClose} />
+        {/* CTA Section */}
+        <div
+          style={{
+            background: c.bgCard,
+            border: `1px solid ${c.amberA30}`,
+            padding: '3rem',
+            backdropFilter: 'blur(8px)',
+            textAlign: 'center',
+          }}
+        >
+          <div className="hud-flicker" style={{ marginBottom: '2rem' }}>
+            <h3
+              style={{
+                fontFamily: 'system-ui, -apple-system, sans-serif',
+                fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+                fontWeight: 600,
+                color: c.heading,
+                marginBottom: '1rem',
+              }}
+            >
+              Experience the Full Manufacturing Process
+            </h3>
+            <p
+              style={{
+                fontFamily: 'monospace',
+                fontSize: '12px',
+                letterSpacing: '0.1em',
+                color: c.body,
+                maxWidth: '42rem',
+                margin: '0 auto',
+              }}
+            >
+              Full interactive 3D experience — use scroll to navigate through 10 manufacturing stages
+            </p>
+          </div>
+
+          <button
+            onClick={onLaunch}
+            data-testid="launch-experience-button"
+            className="cta-pulse"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '1rem',
+              padding: '1.25rem 3rem',
+              border: `1px solid ${c.amberA70}`,
+              background: c.amberA12,
+              color: c.amber,
+              fontFamily: 'monospace',
+              fontSize: '13px',
+              letterSpacing: '0.35em',
+              cursor: 'pointer',
+              transition: 'background 0.25s ease, color 0.25s ease',
+              textTransform: 'uppercase',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = c.amber
+              e.currentTarget.style.color = c.btnHoverText
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = c.amberA12
+              e.currentTarget.style.color = c.amber
+            }}
+          >
+            <span>Launch Precision Flow Experience</span>
+            <ArrowRight size={18} />
+          </button>
+
+          <p
+            style={{
+              fontFamily: 'monospace',
+              fontSize: '10px',
+              letterSpacing: '0.2em',
+              color: c.bodyLight,
+              marginTop: '1.5rem',
+            }}
+          >
+            INTERACTIVE 3D WEBGL EXPERIENCE — SCROLL TO NAVIGATE
+          </p>
+        </div>
       </div>
     </div>
   )
