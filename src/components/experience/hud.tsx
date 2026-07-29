@@ -78,12 +78,24 @@ export function Hud({ stageIndex, percent, visible, introVisible, muted, narrati
         <p style={{ fontFamily: 'monospace', fontSize: '12px', letterSpacing: '0.3em', color: 'oklch(0.62 0.01 250)' }}>
           FROM RAW STEEL TO PRECISION ENGINEERING
         </p>
-        <div className="mt-10 flex flex-col items-center gap-2" style={{ color: 'oklch(0.62 0.01 250)' }}>
-          <span style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.3em' }}>SCROLL TO BEGIN</span>
-          <svg viewBox="0 0 24 24" className="h-5 w-5 animate-bounce" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+        <button
+          type="button"
+          onClick={onNextStage}
+          className="pointer-events-auto mt-10 flex flex-col items-center gap-2 transition-transform hover:scale-110 active:scale-95"
+          style={{
+            color: 'oklch(0.72 0.19 45)',
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+          }}
+        >
+          <span style={{ fontFamily: 'monospace', fontSize: '11px', letterSpacing: '0.3em', fontWeight: 700 }}>
+            CLICK OR SCROLL TO BEGIN
+          </span>
+          <svg viewBox="0 0 24 24" className="h-6 w-6 animate-bounce" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
             <path d="M12 5v14M5 12l7 7 7-7" />
           </svg>
-        </div>
+        </button>
       </div>
 
       {/* left: stage info */}

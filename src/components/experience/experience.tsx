@@ -194,16 +194,16 @@ export function Experience({ started }: ExperienceProps) {
         const idx = stageIndexFromValue(v)
         setStageIndex(idx)
         setPercent(Math.min((v / STAGE_COUNT) * 100, 100))
-        setIntroVisible(p < INTRO_FRACTION * 0.6)
+        setIntroVisible(p < 0.008)
 
         if (v > 0) playStage(idx)
       })
     }
 
     const onWheel = (e: WheelEvent) => {
-      // Forward wheel delta to window scroll for ultra-smooth responsiveness over fixed canvas
+      // Forward wheel delta with multiplier for fast, responsive scrolling over fixed canvas
       if (Math.abs(e.deltaY) > 0) {
-        window.scrollBy({ top: e.deltaY })
+        window.scrollBy({ top: e.deltaY * 1.5 })
       }
     }
 
