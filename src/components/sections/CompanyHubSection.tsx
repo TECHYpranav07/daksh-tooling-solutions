@@ -259,32 +259,49 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
                       Daksh Tooling Solutions is a technology-driven manufacturer specializing in high-precision tools, dies, molded and pressed components for automotive, medical, and industrial engineering sectors. Located at Chinchwad, Pune — India's strategic automotive manufacturing hub — we deliver single-source tooling, molding, stamping, and assemblies under one roof.
                     </p>
 
-                    {/* 3 Pillars */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    {/* Mission & Vision */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
                       <div className="group p-3.5 border border-[oklch(0.93_0.005_250_/_8%)] bg-[oklch(0.12_0.01_250_/_60%)] transition-all duration-200 hover:border-[oklch(0.72_0.19_45_/_40%)] hover:-translate-y-0.5">
                         <div style={{ fontFamily: 'monospace', fontSize: '10px', color: c.amber, fontWeight: 700, marginBottom: '0.3rem' }}>
                           ◆ MISSION
                         </div>
                         <p style={{ fontFamily: 'monospace', fontSize: '10px', color: c.body, lineHeight: 1.5 }}>
-                          To advance precision manufacturing through engineering excellence and collaborative partnerships.
+                          To advance precision manufacturing by combining engineering excellence, continuous improvement, and collaborative partnerships to deliver consistently high-quality products and services.
                         </p>
                       </div>
                       <div className="group p-3.5 border border-[oklch(0.93_0.005_250_/_8%)] bg-[oklch(0.12_0.01_250_/_60%)] transition-all duration-200 hover:border-[oklch(0.78_0.12_215_/_40%)] hover:-translate-y-0.5">
                         <div style={{ fontFamily: 'monospace', fontSize: '10px', color: c.cyan, fontWeight: 700, marginBottom: '0.3rem' }}>
-                          ◆ COMPETITIVE EDGE
+                          ◆ VISION
                         </div>
                         <p style={{ fontFamily: 'monospace', fontSize: '10px', color: c.body, lineHeight: 1.5 }}>
-                          Single-source delivery — tooling, molding, stamping — reducing lead times, cost & supply chain risk.
+                          To be recognized as a benchmark manufacturer in Precision Tools, Molded & Stamped Parts — delivering outstanding products and dependable services that create premium value for our customers through innovation, reliability, and first-time-right performance.
                         </p>
                       </div>
-                      <div className="group p-3.5 border border-[oklch(0.93_0.005_250_/_8%)] bg-[oklch(0.12_0.01_250_/_60%)] transition-all duration-200 hover:border-[oklch(0.75_0.17_150_/_40%)] hover:-translate-y-0.5">
-                        <div style={{ fontFamily: 'monospace', fontSize: '10px', color: c.green, fontWeight: 700, marginBottom: '0.3rem' }}>
-                          ◆ OEM TRUST
+                    </div>
+
+                    {/* Competitive Edge — 4 Pillars */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                      {[
+                        { icon: '⬡', label: 'ENGINEERING EXCELLENCE', desc: 'Deep domain experience with a focus on precision, performance, and reliability.', color: c.amber },
+                        { icon: '◈', label: 'INTEGRATED MANUFACTURING', desc: 'Single-source delivery of tooling, molding, stamping & assemblies — reducing lead times and risk.', color: c.cyan },
+                        { icon: '◇', label: 'COST & VALUE OPTIMIZATION', desc: 'Optimized processes and equipment ensure competitive pricing without compromising quality.', color: c.green },
+                        { icon: '△', label: 'CUSTOMER-CENTRIC SERVICE', desc: 'Collaborative project development, responsive support, and on-time delivery commitment.', color: c.amber },
+                      ].map((edge) => (
+                        <div key={edge.label} className="group p-3.5 border border-[oklch(0.93_0.005_250_/_8%)] bg-[oklch(0.12_0.01_250_/_60%)] transition-all duration-200 hover:-translate-y-0.5" style={{ borderColor: `color-mix(in oklch, ${edge.color} 20%, transparent)` }}
+                          onMouseEnter={(e) => { e.currentTarget.style.borderColor = `color-mix(in oklch, ${edge.color} 50%, transparent)` }}
+                          onMouseLeave={(e) => { e.currentTarget.style.borderColor = `color-mix(in oklch, ${edge.color} 20%, transparent)` }}
+                        >
+                          <div className="flex items-center gap-2 mb-1.5">
+                            <span style={{ fontSize: '14px', color: edge.color, lineHeight: 1 }}>{edge.icon}</span>
+                            <span style={{ fontFamily: 'monospace', fontSize: '9px', color: edge.color, fontWeight: 700, letterSpacing: '0.15em' }}>
+                              {edge.label}
+                            </span>
+                          </div>
+                          <p style={{ fontFamily: 'monospace', fontSize: '10px', color: c.body, lineHeight: 1.5 }}>
+                            {edge.desc}
+                          </p>
                         </div>
-                        <p style={{ fontFamily: 'monospace', fontSize: '10px', color: c.body, lineHeight: 1.5 }}>
-                          Serving Toyota Kirloskar, Spark Minda, PSA Groupe, TRW, and other Tier-1 leaders.
-                        </p>
-                      </div>
+                      ))}
                     </div>
                   </div>
 

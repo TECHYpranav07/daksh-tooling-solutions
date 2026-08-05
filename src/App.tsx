@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 import { Navbar } from '@/components/Navbar'
 import { HeroSection } from '@/components/sections/HeroSection'
 import { CompanyHubSection } from '@/components/sections/CompanyHubSection'
+import { ToolingExcellenceSection } from '@/components/sections/ToolingExcellenceSection'
 import { ManufacturingJourneySection } from '@/components/sections/ManufacturingJourneySection'
 import { MachinerySection } from '@/components/sections/MachinerySection'
 import { ProductsSection } from '@/components/sections/ProductsSection'
+import { RoadmapSection } from '@/components/sections/RoadmapSection'
 import { ContactSection } from '@/components/sections/ContactSection'
 import { Footer } from '@/components/Footer'
 import { ExperienceOverlay } from '@/components/sections/ExperienceOverlay'
@@ -53,6 +55,10 @@ export default function App() {
           <CompanyHubSection initialTab={hubTab} />
         </section>
 
+        <section id="tooling-excellence">
+          <ToolingExcellenceSection />
+        </section>
+
         <section id="manufacturing-journey">
           <ManufacturingJourneySection onLaunch={() => setExperienceOpen(true)} />
         </section>
@@ -63,6 +69,10 @@ export default function App() {
 
         <section id="products">
           <ProductsSection />
+        </section>
+
+        <section id="roadmap">
+          <RoadmapSection />
         </section>
 
         <section id="contact">

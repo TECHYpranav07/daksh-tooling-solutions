@@ -12,6 +12,7 @@ export interface Machine {
   description: string
   highlights: string[]
   qty: string
+  capacity?: string
 }
 
 const MACHINES: Machine[] = [
@@ -139,6 +140,7 @@ const MACHINES: Machine[] = [
     description: 'High-tonnage horizontal molding machine for engineering plastic parts and automotive components.',
     highlights: ['180 Ton Clamping Force', '336g Shot Capacity', '100% Free Capacity Available'],
     qty: '01 Unit',
+    capacity: '100%',
   },
   {
     id: 'milacron-100t',
@@ -151,6 +153,7 @@ const MACHINES: Machine[] = [
     description: 'Precision horizontal injection molding unit for general and engineering grade thermoplastics.',
     highlights: ['Micro-Processor Control', 'Closed Loop Control', '60% Free Capacity'],
     qty: '01 Unit',
+    capacity: '60%',
   },
   {
     id: 'stm-injection-120t',
@@ -163,6 +166,7 @@ const MACHINES: Machine[] = [
     description: 'Versatile injection molding fleet for plastic housing and automotive interior trim components.',
     highlights: ['High Repeatability', 'Energy Efficient Servo Drive', '50% Free Capacity'],
     qty: '02 Units',
+    capacity: '50%',
   },
   {
     id: 'lizhu-rotary-50t',
@@ -175,6 +179,7 @@ const MACHINES: Machine[] = [
     description: 'Vertical rotary clamping system specialized for insert over-molding of stamped metal terminals into plastics.',
     highlights: ['Rotary Table Insert Molding', 'Metal-to-Plastic Overmolding', 'Hybrid Assembly'],
     qty: '03 Units',
+    capacity: '50%',
   },
 
   // Press Shop
@@ -189,6 +194,7 @@ const MACHINES: Machine[] = [
     description: 'Heavy hydraulic press for deep drawing, compound press operations, and heavy metal stamping.',
     highlights: ['100 Ton Hydraulic Force', 'Deep Drawing', 'Programmable Pressure Cycle'],
     qty: '01 Unit',
+    capacity: '50%',
   },
   {
     id: 'mechanical-press',
@@ -201,6 +207,7 @@ const MACHINES: Machine[] = [
     description: 'High-speed mechanical power presses for progressive metal stamping and component blanking.',
     highlights: ['High Stroke Speed', 'Progressive Die Operation', 'Ferrous & Non-Ferrous Metals'],
     qty: '05 Units',
+    capacity: '50%',
   },
   {
     id: 'pneumatic-press',
@@ -213,6 +220,7 @@ const MACHINES: Machine[] = [
     description: 'Precision pneumatic power presses for clean, high-speed secondary piercing and blanking.',
     highlights: ['Clean Pneumatic Action', 'High Precision Piercing', '40% Free Capacity'],
     qty: '02 Units',
+    capacity: '40%',
   },
 
   // Quality Inspection
@@ -262,6 +270,8 @@ const CATEGORIES = [
   { key: 'press', label: 'PRESS SHOP', count: 3 },
   { key: 'quality', label: 'QUALITY LAB', count: 3 },
 ]
+
+
 
 export function MachinerySection() {
   const c = useThemeColors()
@@ -477,9 +487,16 @@ export function MachinerySection() {
                 <span style={{ fontFamily: 'monospace', fontSize: '9px', letterSpacing: '0.25em', color: c.cyan }}>
                   {machine.categoryLabel}
                 </span>
-                <span style={{ fontFamily: 'monospace', fontSize: '9px', letterSpacing: '0.15em', color: c.amber, border: `1px solid ${c.amberA30}`, padding: '0.1rem 0.4rem' }}>
-                  {machine.qty}
-                </span>
+                <div className="flex items-center gap-2">
+                  {machine.capacity && (
+                    <span style={{ fontFamily: 'monospace', fontSize: '8px', letterSpacing: '0.1em', color: c.green, border: `1px solid color-mix(in oklch, ${c.green} 40%, transparent)`, background: `color-mix(in oklch, ${c.green} 8%, transparent)`, padding: '0.1rem 0.35rem' }}>
+                      {machine.capacity} FREE
+                    </span>
+                  )}
+                  <span style={{ fontFamily: 'monospace', fontSize: '9px', letterSpacing: '0.15em', color: c.amber, border: `1px solid ${c.amberA30}`, padding: '0.1rem 0.4rem' }}>
+                    {machine.qty}
+                  </span>
+                </div>
               </div>
 
               {/* Machine Photo */}
@@ -552,6 +569,8 @@ export function MachinerySection() {
           <span>SWIPE OR USE ARROWS TO BROWSE</span>
           <span style={{ color: c.amber }}>SHOWING {filteredMachines.length} MACHINES</span>
         </div>
+
+
 
         {/* Modal for detailed inspection when a card is clicked */}
         {selectedMachine && (
