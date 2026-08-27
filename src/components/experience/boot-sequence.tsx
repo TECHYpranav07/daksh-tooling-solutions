@@ -53,9 +53,9 @@ export function BootSequence({ started, onComplete }: BootSequenceProps) {
       <div style={{ width: '100%', maxWidth: '32rem', padding: '0 2rem' }}>
         <div className="mb-6 flex items-center gap-3">
           <span className="hud-blink h-2 w-2 rounded-full" style={{ background: 'oklch(0.72 0.19 45)' }} aria-hidden="true" />
-          <span style={{ fontFamily: 'monospace', fontSize: '12px', letterSpacing: '0.35em', color: 'oklch(0.72 0.19 45)' }}>SYSTEM BOOT</span>
+          <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '12px', letterSpacing: '0.35em', color: 'oklch(0.72 0.19 45)' }}>SYSTEM BOOT</span>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', minHeight: '12rem', fontFamily: 'monospace', fontSize: '13px', color: 'oklch(0.62 0.01 250)' }} aria-live="polite">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', minHeight: '12rem', fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '13px', color: 'oklch(0.62 0.01 250)' }} aria-live="polite">
           {BOOT_LINES.slice(0, lineCount).map((line, i) => (
             <div key={i} style={{ color: i === BOOT_LINES.length - 1 ? 'oklch(0.78 0.12 215)' : undefined }}>
               <span style={{ marginRight: '0.75rem', color: 'oklch(0.72 0.19 45 / 0.7)' }}>{'>'}</span>

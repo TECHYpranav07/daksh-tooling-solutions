@@ -172,13 +172,13 @@ export function RoadmapSection() {
           <div>
             <div className="flex items-center gap-2 mb-2">
               <span className="hud-blink" style={{ width: '8px', height: '8px', borderRadius: '50%', background: c.amber, display: 'block', boxShadow: `0 0 8px ${c.amber}` }} />
-              <span style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.4em', color: c.amber, fontWeight: 700 }}>
+              <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.4em', color: c.amber, fontWeight: 700 }}>
                 SECTION 05 — STRATEGIC HORIZON
               </span>
             </div>
             <h2
               style={{
-                fontFamily: 'system-ui, -apple-system, sans-serif',
+                fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
                 fontSize: 'clamp(2rem, 4.5vw, 3.25rem)',
                 fontWeight: 800,
                 letterSpacing: '-0.02em',
@@ -189,7 +189,7 @@ export function RoadmapSection() {
             </h2>
             <p
               style={{
-                fontFamily: 'monospace',
+                fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
                 fontSize: '12px',
                 letterSpacing: '0.05em',
                 color: c.body,
@@ -205,7 +205,7 @@ export function RoadmapSection() {
           <div className="flex items-center gap-3 self-start lg:self-auto">
             <div className="px-3.5 py-2 border border-[oklch(0.93_0.005_250_/_15%)] bg-[oklch(0.14_0.012_250_/_60%)] backdrop-blur-md flex items-center gap-2">
               <Sparkles size={14} style={{ color: c.amber }} />
-              <span style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.2em', color: c.heading, fontWeight: 600 }}>
+              <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.2em', color: c.heading, fontWeight: 600 }}>
                 VISION 2027 ACTIVE
               </span>
             </div>
@@ -218,11 +218,11 @@ export function RoadmapSection() {
         <div className="mb-20">
           <div className="flex items-center justify-between mb-6 pb-3 border-b border-[oklch(0.93_0.005_250_/_12%)]">
             <div className="flex items-center gap-2">
-              <span style={{ fontFamily: 'monospace', fontSize: '11px', letterSpacing: '0.3em', color: c.cyan, fontWeight: 700 }}>
+              <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.3em', color: c.cyan, fontWeight: 700 }}>
                 ◆ STRATEGIC MILESTONE MATRIX
               </span>
             </div>
-            <span style={{ fontFamily: 'monospace', fontSize: '9px', color: c.body, letterSpacing: '0.15em' }} className="hidden sm:inline">
+            <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10px', color: c.body, letterSpacing: '0.15em' }} className="hidden sm:inline">
               SELECT MILESTONE FOR SPECIFICATIONS
             </span>
           </div>
@@ -269,13 +269,13 @@ export function RoadmapSection() {
                         </div>
                         <div className="min-w-0">
                           <div className="flex items-center gap-2 mb-0.5">
-                            <span style={{ fontFamily: 'monospace', fontSize: '9px', fontWeight: 800, letterSpacing: '0.2em', color: color }}>
+                            <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10px', fontWeight: 800, letterSpacing: '0.2em', color: color }}>
                               [{item.target}]
                             </span>
                             <span 
                               style={{ 
-                                fontFamily: 'monospace', 
-                                fontSize: '8px', 
+                                fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', 
+                                fontSize: '10px', 
                                 letterSpacing: '0.15em', 
                                 padding: '0.1rem 0.4rem',
                                 border: `1px solid color-mix(in oklch, ${color} 30%, transparent)`,
@@ -287,7 +287,7 @@ export function RoadmapSection() {
                               {item.status}
                             </span>
                           </div>
-                          <h3 style={{ fontFamily: 'system-ui', fontSize: '1.05rem', fontWeight: 700, color: isSelected ? c.heading : c.body, lineHeight: 1.3 }} className="truncate">
+                          <h3 style={{ fontFamily: '"Inter", system-ui, sans-serif', fontSize: '1.05rem', fontWeight: 700, color: isSelected ? c.heading : c.body, lineHeight: 1.3 }} className="truncate">
                             {item.title}
                           </h3>
                         </div>
@@ -296,7 +296,7 @@ export function RoadmapSection() {
                       <div className="flex items-center gap-3 shrink-0">
                         {/* Progress Ring / Mini Bar */}
                         <div className="hidden sm:flex flex-col items-end min-w-[70px]">
-                          <span style={{ fontFamily: 'monospace', fontSize: '10px', color: color, fontWeight: 700 }}>
+                          <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', color: color, fontWeight: 700 }}>
                             {item.progress}%
                           </span>
                           <div className="w-16 h-1 bg-[oklch(0.93_0.005_250_/_10%)] rounded-full overflow-hidden mt-1">
@@ -339,11 +339,11 @@ export function RoadmapSection() {
                   <div className="flex items-center justify-between pb-4 mb-6 border-b border-[oklch(0.93_0.005_250_/_12%)]">
                     <div className="flex items-center gap-2">
                       <span className="hud-blink" style={{ width: '6px', height: '6px', borderRadius: '50%', background: getColor(selectedRoadmap.accent) }} />
-                      <span style={{ fontFamily: 'monospace', fontSize: '9px', letterSpacing: '0.3em', color: getColor(selectedRoadmap.accent), fontWeight: 700 }}>
+                      <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10px', letterSpacing: '0.3em', color: getColor(selectedRoadmap.accent), fontWeight: 700 }}>
                         MILESTONE SPECIFICATION
                       </span>
                     </div>
-                    <span style={{ fontFamily: 'monospace', fontSize: '10px', color: c.heading, fontWeight: 700 }}>
+                    <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', color: c.heading, fontWeight: 700 }}>
                       TARGET: {selectedRoadmap.target}
                     </span>
                   </div>
@@ -364,10 +364,10 @@ export function RoadmapSection() {
                       })()}
                     </div>
                     <div>
-                      <h3 style={{ fontFamily: 'system-ui', fontSize: '1.4rem', fontWeight: 800, color: c.heading, lineHeight: 1.2 }}>
+                      <h3 style={{ fontFamily: '"Inter", system-ui, sans-serif', fontSize: '1.4rem', fontWeight: 800, color: c.heading, lineHeight: 1.2 }}>
                         {selectedRoadmap.title}
                       </h3>
-                      <p style={{ fontFamily: 'monospace', fontSize: '10px', color: getColor(selectedRoadmap.accent), letterSpacing: '0.1em', marginTop: '0.25rem' }}>
+                      <p style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', color: getColor(selectedRoadmap.accent), letterSpacing: '0.1em', marginTop: '0.25rem' }}>
                         {selectedRoadmap.subtitle}
                       </p>
                     </div>
@@ -375,7 +375,7 @@ export function RoadmapSection() {
 
                   {/* Implementation Deliverables */}
                   <div className="space-y-3 mb-8">
-                    <div style={{ fontFamily: 'monospace', fontSize: '9px', letterSpacing: '0.25em', color: c.body, textTransform: 'uppercase' }}>
+                    <div style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10px', letterSpacing: '0.25em', color: c.body, textTransform: 'uppercase' }}>
                       Key Deliverables & Specifications:
                     </div>
                     {selectedRoadmap.details.map((detail, idx) => (
@@ -384,7 +384,7 @@ export function RoadmapSection() {
                         className="flex items-start gap-2.5 p-2.5 border border-[oklch(0.93_0.005_250_/_8%)] bg-[oklch(0.14_0.012_250_/_50%)]"
                       >
                         <CheckCircle2 size={15} style={{ color: getColor(selectedRoadmap.accent), flexShrink: 0, marginTop: '2px' }} />
-                        <span style={{ fontFamily: 'monospace', fontSize: '10.5px', color: c.heading, lineHeight: 1.5 }}>
+                        <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10.5px', color: c.heading, lineHeight: 1.5 }}>
                           {detail}
                         </span>
                       </div>
@@ -394,7 +394,7 @@ export function RoadmapSection() {
 
                 {/* Progress Bar Display */}
                 <div className="pt-4 border-t border-[oklch(0.93_0.005_250_/_12%)]">
-                  <div className="flex items-center justify-between mb-2" style={{ fontFamily: 'monospace', fontSize: '10px' }}>
+                  <div className="flex items-center justify-between mb-2" style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px' }}>
                     <span style={{ color: c.body }}>EXECUTION READY:</span>
                     <span style={{ color: getColor(selectedRoadmap.accent), fontWeight: 800 }}>
                       {selectedRoadmap.progress}% COMPLETE
@@ -423,14 +423,14 @@ export function RoadmapSection() {
         <div>
           <div className="flex items-center justify-between mb-8 pb-3 border-b border-[oklch(0.93_0.005_250_/_12%)]">
             <div>
-              <span style={{ fontFamily: 'monospace', fontSize: '11px', letterSpacing: '0.3em', color: c.green, fontWeight: 700 }}>
+              <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.3em', color: c.green, fontWeight: 700 }}>
                 ◆ GUARANTEED OEM COMMITMENTS
               </span>
-              <h3 style={{ fontFamily: 'system-ui', fontSize: '1.5rem', fontWeight: 800, color: c.heading, marginTop: '0.2rem' }}>
+              <h3 style={{ fontFamily: '"Inter", system-ui, sans-serif', fontSize: '1.5rem', fontWeight: 800, color: c.heading, marginTop: '0.2rem' }}>
                 Operational Promises Built On Trust
               </h3>
             </div>
-            <span style={{ fontFamily: 'monospace', fontSize: '9px', color: c.body, letterSpacing: '0.15em' }} className="hidden sm:inline">
+            <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10px', color: c.body, letterSpacing: '0.15em' }} className="hidden sm:inline">
               ISO 9001:2015 AUDITED STANDARDS
             </span>
           </div>
@@ -473,7 +473,7 @@ export function RoadmapSection() {
                       >
                         <IconComponent size={22} />
                       </div>
-                      <span style={{ fontFamily: 'monospace', fontSize: '16px', fontWeight: 900, color: `color-mix(in oklch, ${color} 40%, white)` }}>
+                      <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16px', fontWeight: 900, color: `color-mix(in oklch, ${color} 40%, white)` }}>
                         {item.num}
                       </span>
                     </div>
@@ -482,8 +482,8 @@ export function RoadmapSection() {
                     <div className="mb-2">
                       <span 
                         style={{ 
-                          fontFamily: 'monospace', 
-                          fontSize: '8px', 
+                          fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', 
+                          fontSize: '10px', 
                           fontWeight: 700, 
                           letterSpacing: '0.15em',
                           padding: '0.2rem 0.5rem',
@@ -496,14 +496,14 @@ export function RoadmapSection() {
                       </span>
                     </div>
 
-                    <h4 style={{ fontFamily: 'system-ui', fontSize: '1.15rem', fontWeight: 800, color: c.heading, marginBottom: '0.25rem', lineHeight: 1.2 }}>
+                    <h4 style={{ fontFamily: '"Inter", system-ui, sans-serif', fontSize: '1.15rem', fontWeight: 800, color: c.heading, marginBottom: '0.25rem', lineHeight: 1.2 }}>
                       {item.title}
                     </h4>
-                    <div style={{ fontFamily: 'monospace', fontSize: '8.5px', letterSpacing: '0.2em', color: color, marginBottom: '0.75rem', fontWeight: 600 }}>
+                    <div style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '8.5px', letterSpacing: '0.2em', color: color, marginBottom: '0.75rem', fontWeight: 600 }}>
                       {item.tagline}
                     </div>
 
-                    <p style={{ fontFamily: 'monospace', fontSize: '10.5px', color: c.body, lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                    <p style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10.5px', color: c.body, lineHeight: 1.6, marginBottom: '1.25rem' }}>
                       {item.desc}
                     </p>
                   </div>
@@ -511,7 +511,7 @@ export function RoadmapSection() {
                   {/* Highlights Bullet Tags */}
                   <div className="pt-3 border-t border-[oklch(0.93_0.005_250_/_10%)] space-y-1">
                     {item.highlights.map((h) => (
-                      <div key={h} className="flex items-center gap-1.5" style={{ fontFamily: 'monospace', fontSize: '9px', color: c.heading }}>
+                      <div key={h} className="flex items-center gap-1.5" style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10px', color: c.heading }}>
                         <span style={{ color: color }}>▸</span>
                         <span>{h}</span>
                       </div>

@@ -30,7 +30,7 @@ export function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <span
                 style={{
-                  fontFamily: 'monospace',
+                  fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
                   fontSize: '20px',
                   fontWeight: 700,
                   letterSpacing: '0.1em',
@@ -42,7 +42,7 @@ export function Footer() {
             </div>
             <h3
               style={{
-                fontFamily: 'system-ui, -apple-system, sans-serif',
+                fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
                 fontSize: '16px',
                 fontWeight: 600,
                 letterSpacing: '0.05em',
@@ -54,8 +54,8 @@ export function Footer() {
             </h3>
             <p
               style={{
-                fontFamily: 'monospace',
-                fontSize: '11px',
+                fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                fontSize: '16.5px',
                 letterSpacing: '0.15em',
                 color: c.body,
                 marginBottom: '1rem',
@@ -77,8 +77,8 @@ export function Footer() {
               <span style={{ width: '6px', height: '6px', borderRadius: '9999px', background: c.amber }} />
               <span
                 style={{
-                  fontFamily: 'monospace',
-                  fontSize: '9px',
+                  fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                  fontSize: '15.5px',
                   letterSpacing: '0.3em',
                   color: c.amber,
                 }}
@@ -92,8 +92,8 @@ export function Footer() {
           <div>
             <h4
               style={{
-                fontFamily: 'monospace',
-                fontSize: '10px',
+                fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                fontSize: '16.5px',
                 letterSpacing: '0.3em',
                 color: c.amber,
                 marginBottom: '1.5rem',
@@ -108,8 +108,8 @@ export function Footer() {
                   onClick={() => handleLinkClick(link.href)}
                   data-testid={`footer-link-${link.href.slice(1)}`}
                   style={{
-                    fontFamily: 'monospace',
-                    fontSize: '11px',
+                    fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                    fontSize: '16.5px',
                     letterSpacing: '0.05em',
                     color: c.body,
                     textAlign: 'left',
@@ -132,8 +132,8 @@ export function Footer() {
           <div>
             <h4
               style={{
-                fontFamily: 'monospace',
-                fontSize: '10px',
+                fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                fontSize: '16.5px',
                 letterSpacing: '0.3em',
                 color: c.amber,
                 marginBottom: '1.5rem',
@@ -143,14 +143,14 @@ export function Footer() {
             </h4>
             <div className="space-y-3">
               <div>
-                <p style={{ fontFamily: 'monospace', fontSize: '9px', letterSpacing: '0.2em', color: c.body, marginBottom: '0.25rem' }}>
+                <p style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '15.5px', letterSpacing: '0.2em', color: c.body, marginBottom: '0.25rem' }}>
                   LOCATION
                 </p>
                 <a
                   href="https://maps.app.goo.gl/i8ypH4VQ5kdxmToW7"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ fontFamily: 'monospace', fontSize: '11px', color: c.heading, lineHeight: 1.6, textDecoration: 'none' }}
+                  style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', color: c.heading, lineHeight: 1.6, textDecoration: 'none' }}
                   className="hover:text-[oklch(0.72_0.19_45)] transition-colors"
                 >
                   Plot No. 54/26, D-II Block
@@ -161,18 +161,18 @@ export function Footer() {
                 </a>
               </div>
               <div>
-                <p style={{ fontFamily: 'monospace', fontSize: '9px', letterSpacing: '0.2em', color: c.body, marginBottom: '0.25rem' }}>
+                <p style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '15.5px', letterSpacing: '0.2em', color: c.body, marginBottom: '0.25rem' }}>
                   EMAIL
                 </p>
-                <p style={{ fontFamily: 'monospace', fontSize: '11px', color: c.heading }}>
+                <p style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', color: c.heading }}>
                   dakshtooling@gmail.com
                 </p>
               </div>
               <div>
-                <p style={{ fontFamily: 'monospace', fontSize: '9px', letterSpacing: '0.2em', color: c.body, marginBottom: '0.25rem' }}>
+                <p style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '15.5px', letterSpacing: '0.2em', color: c.body, marginBottom: '0.25rem' }}>
                   GSTIN
                 </p>
-                <p style={{ fontFamily: 'monospace', fontSize: '11px', color: c.heading }}>
+                <p style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', color: c.heading }}>
                   27ARDPG2718D1Z8
                 </p>
               </div>
@@ -192,10 +192,10 @@ export function Footer() {
           }}
           className="md:flex-row md:justify-between md:items-center"
         >
-          <p style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.15em', color: c.body }}>
+          <p style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', letterSpacing: '0.15em', color: c.body }}>
             © 2025 DAKSH TOOLING SOLUTIONS — ALL RIGHTS RESERVED
           </p>
-          <p style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.2em', color: c.cyan }}>
+          <p style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', letterSpacing: '0.2em', color: c.cyan }}>
             PRECISION · QUALITY · EXCELLENCE
           </p>
         </div>

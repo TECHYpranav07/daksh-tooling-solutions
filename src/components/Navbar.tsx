@@ -82,7 +82,7 @@ export function Navbar({ onTabSelect }: NavbarProps) {
             >
               <span
                 style={{
-                  fontFamily: 'monospace',
+                  fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
                   fontSize: '22px',
                   fontWeight: 700,
                   letterSpacing: '0.1em',
@@ -94,8 +94,8 @@ export function Navbar({ onTabSelect }: NavbarProps) {
               <div style={{ width: '1px', height: '24px', background: c.borderHeading }} />
               <span
                 style={{
-                  fontFamily: 'system-ui, -apple-system, sans-serif',
-                  fontSize: '11px',
+                  fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
+                  fontSize: '16.5px',
                   fontWeight: 600,
                   letterSpacing: '0.15em',
                   color: c.heading,
@@ -116,8 +116,8 @@ export function Navbar({ onTabSelect }: NavbarProps) {
                     onClick={() => handleNavClick(link.href, link.tab)}
                     data-testid={`nav-link-${link.href.slice(1)}`}
                     style={{
-                      fontFamily: 'monospace',
-                      fontSize: '10px',
+                      fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                      fontSize: '16.5px',
                       letterSpacing: '0.2em',
                       color: isActive ? c.amber : c.body,
                       padding: '0.5rem 1rem',
@@ -188,8 +188,8 @@ export function Navbar({ onTabSelect }: NavbarProps) {
                   onClick={() => handleNavClick(link.href, link.tab)}
                   data-testid={`mobile-nav-link-${link.href.slice(1)}`}
                   style={{
-                    fontFamily: 'monospace',
-                    fontSize: '12px',
+                    fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                    fontSize: '15px',
                     letterSpacing: '0.25em',
                     color: isActive ? c.amber : c.body,
                     padding: '1rem',

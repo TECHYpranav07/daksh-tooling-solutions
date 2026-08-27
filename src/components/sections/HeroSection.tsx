@@ -96,11 +96,11 @@ export function HeroSection() {
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <span className="hud-blink" style={{ width: '8px', height: '8px', borderRadius: '50%', background: c.green, display: 'block', boxShadow: `0 0 8px ${c.green}` }} />
-          <span style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.35em', color: c.heading, fontWeight: 600 }}>
+          <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', letterSpacing: '0.35em', color: c.heading, fontWeight: 600 }}>
             ISO 9001:2015 CERTIFIED TOOL ROOM
           </span>
         </div>
-        <div className="hidden md:flex items-center gap-6" style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.2em', color: c.body }}>
+        <div className="hidden md:flex items-center gap-6" style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', letterSpacing: '0.2em', color: c.body }}>
           <span>EST. APRIL 2019</span>
           <span>•</span>
           <span>PIMPRI CHINCHWAD, PUNE</span>
@@ -139,20 +139,20 @@ export function HeroSection() {
           }}
         >
           <Cpu size={14} style={{ color: c.amber }} />
-          <span style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.35em', color: c.amber, fontWeight: 700 }}>
+          <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', letterSpacing: '0.35em', color: c.amber, fontWeight: 700 }}>
             OSSNAM ENGINEERING GROUP
           </span>
         </div>
 
         {/* Master Headline Branding */}
         <div className="landing-in landing-in-delay-2" style={{ width: '100%' }}>
-          <div style={{ fontFamily: 'monospace', fontSize: '11px', letterSpacing: '0.7em', color: c.body, marginBottom: '0.5rem', textTransform: 'uppercase' }}>
+          <div style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', letterSpacing: '0.7em', color: c.body, marginBottom: '0.5rem', textTransform: 'uppercase' }}>
             HIGH-PRECISION TOOLING & MOLDING HUB
           </div>
 
           <h1
             style={{
-              fontFamily: 'system-ui, -apple-system, sans-serif',
+              fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
               fontSize: 'clamp(2.75rem, 8vw, 6.5rem)',
               fontWeight: 900,
               letterSpacing: '-0.03em',
@@ -191,7 +191,7 @@ export function HeroSection() {
         <p
           className="landing-in landing-in-delay-3"
           style={{
-            fontFamily: 'monospace',
+            fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
             fontSize: 'clamp(12px, 1.8vw, 14px)',
             lineHeight: 1.8,
             color: c.body,
@@ -199,7 +199,7 @@ export function HeroSection() {
             letterSpacing: '0.02em',
           }}
         >
-          Single-source high-precision manufacturer for <span style={{ color: c.heading, fontWeight: 600 }}>Injection Molds, Stamping Dies, Pressed & Over-Molded Parts</span> — engineered to micron tolerances for Automotive, Medical & Engineering OEMs.
+          Single-source high-precision manufacturer for <span style={{ color: c.heading, fontWeight: 600 }}>Injection Molds, Stamping Dies, Hot Chamber Dies, Cold Chamber Dies & Over-Molded Parts</span> — engineered to micron tolerances for Automotive, Medical & Engineering OEMs.
         </p>
 
         {/* Capability Pill Bar */}
@@ -214,8 +214,8 @@ export function HeroSection() {
             <span
               key={tag}
               style={{
-                fontFamily: 'monospace',
-                fontSize: '9px',
+                fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                fontSize: '15.5px',
                 letterSpacing: '0.2em',
                 color: c.cyanA80,
                 border: `1px solid ${c.cyanA20}`,
@@ -241,8 +241,8 @@ export function HeroSection() {
               border: `1px solid ${c.amberA70}`,
               background: c.amberA12,
               color: c.amber,
-              fontFamily: 'monospace',
-              fontSize: '12px',
+              fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+              fontSize: '15px',
               fontWeight: 700,
               letterSpacing: '0.3em',
               cursor: 'pointer',
@@ -273,8 +273,8 @@ export function HeroSection() {
               border: `1px solid ${c.border}`,
               background: c.bgCard,
               color: c.heading,
-              fontFamily: 'monospace',
-              fontSize: '12px',
+              fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+              fontSize: '15px',
               fontWeight: 600,
               letterSpacing: '0.2em',
               cursor: 'pointer',
@@ -302,19 +302,19 @@ export function HeroSection() {
         {/* Live Metrics Grid inside Hero */}
         <div className="landing-in landing-in-delay-5 grid grid-cols-2 md:grid-cols-4 gap-3 w-full mt-6 pt-6 border-t border-[oklch(0.93_0.005_250_/_10%)]">
           {[
-            { metric: '90%', label: 'FIRST-TRIAL APPROVAL', sub: 'First-time-right accuracy' },
-            { metric: '2 Lakhs+', label: 'SHOTS TOOL LIFE', sub: 'Guaranteed durability' },
-            { metric: '250+', label: 'MOLDS DELIVERED', sub: 'Last year production' },
-            { metric: '600+', label: 'ZERO INCIDENT DAYS', sub: 'Safety excellence' },
+            { metric: '300+', label: 'INJECTION MOLDS', sub: 'Precision injection tooling' },
+            { metric: '200+', label: 'SHEET METAL DIES', sub: 'Stamping & forming dies' },
+            { metric: '100+', label: 'HOT CHAMBER DIES', sub: 'Die-casting tooling' },
+            { metric: '100+', label: 'HPDC DIES', sub: 'High-pressure die casting' },
           ].map((item) => (
             <div key={item.label} className="p-3 border border-[oklch(0.93_0.005_250_/_8%)] bg-[oklch(0.14_0.012_250_/_50%)] backdrop-blur-sm text-center">
-              <div style={{ fontFamily: 'system-ui', fontSize: '1.35rem', fontWeight: 800, color: c.amber, lineHeight: 1 }}>
+              <div style={{ fontFamily: '"Inter", system-ui, sans-serif', fontSize: '1.35rem', fontWeight: 800, color: c.amber, lineHeight: 1 }}>
                 {item.metric}
               </div>
-              <div style={{ fontFamily: 'monospace', fontSize: '9px', letterSpacing: '0.15em', color: c.heading, fontWeight: 600, marginTop: '0.25rem' }}>
+              <div style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '15.5px', letterSpacing: '0.15em', color: c.heading, fontWeight: 600, marginTop: '0.25rem' }}>
                 {item.label}
               </div>
-              <div style={{ fontFamily: 'monospace', fontSize: '8px', color: c.body, marginTop: '0.1rem' }}>
+              <div style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '15.5px', color: c.body, marginTop: '0.1rem' }}>
                 {item.sub}
               </div>
             </div>

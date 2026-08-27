@@ -56,11 +56,11 @@ export function Hud({ stageIndex, percent, visible, introVisible, muted, narrati
       <header className="absolute inset-x-0 top-0 flex items-center justify-between px-4 py-3 md:px-8 md:py-5">
         <div className="flex items-center gap-3">
           <span className="hud-blink h-2 w-2 rounded-full bg-[var(--primary)]" aria-hidden="true" />
-          <span style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.35em', color: 'oklch(0.93 0.005 250 / 0.8)' }}>
+          <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.35em', color: 'oklch(0.93 0.005 250 / 0.8)' }}>
             DAKSH TOOLING — PRECISION FLOW v1.0
           </span>
         </div>
-        <div style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.25em', color: 'oklch(0.62 0.01 250)' }}>
+        <div style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.25em', color: 'oklch(0.62 0.01 250)' }}>
           DIGITAL TWIN <span style={{ color: 'oklch(0.78 0.12 215)' }}>ACTIVE</span>
         </div>
       </header>
@@ -69,13 +69,13 @@ export function Hud({ stageIndex, percent, visible, introVisible, muted, narrati
       <div
         className={`absolute inset-0 flex flex-col items-center justify-center gap-5 px-6 text-center transition-opacity duration-700 ${introVisible ? 'opacity-100' : 'opacity-0'}`}
       >
-        <div style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.5em', color: 'oklch(0.72 0.19 45)' }}>
+        <div style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.5em', color: 'oklch(0.72 0.19 45)' }}>
           DAKSH TOOLING — PRECISION FLOW v1.0
         </div>
-        <h1 style={{ fontFamily: 'system-ui, sans-serif', fontSize: 'clamp(2rem, 6vw, 4.5rem)', fontWeight: 700, letterSpacing: '-0.02em', color: 'oklch(0.93 0.005 250)', maxWidth: '48rem' }}>
+        <h1 style={{ fontFamily: '"Inter", system-ui, sans-serif', fontSize: 'clamp(2rem, 6vw, 4.5rem)', fontWeight: 700, letterSpacing: '-0.02em', color: 'oklch(0.93 0.005 250)', maxWidth: '48rem' }}>
           THE JOURNEY OF A WORKPIECE
         </h1>
-        <p style={{ fontFamily: 'monospace', fontSize: '12px', letterSpacing: '0.3em', color: 'oklch(0.62 0.01 250)' }}>
+        <p style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '12px', letterSpacing: '0.3em', color: 'oklch(0.62 0.01 250)' }}>
           FROM RAW STEEL TO PRECISION ENGINEERING
         </p>
         <button
@@ -89,7 +89,7 @@ export function Hud({ stageIndex, percent, visible, introVisible, muted, narrati
             cursor: 'pointer',
           }}
         >
-          <span style={{ fontFamily: 'monospace', fontSize: '11px', letterSpacing: '0.3em', fontWeight: 700 }}>
+          <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.3em', fontWeight: 700 }}>
             CLICK OR SCROLL TO BEGIN
           </span>
           <svg viewBox="0 0 24 24" className="h-6 w-6 animate-bounce" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -103,9 +103,9 @@ export function Hud({ stageIndex, percent, visible, introVisible, muted, narrati
         className={`absolute left-4 top-1/2 hidden w-72 -translate-y-1/2 transition-opacity duration-500 md:left-8 md:block ${introVisible ? 'opacity-0' : 'opacity-100'}`}
       >
         <div className="hud-flicker" style={{ borderLeft: '2px solid oklch(0.72 0.19 45)', paddingLeft: '1.25rem' }}>
-          <div style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.4em', color: 'oklch(0.72 0.19 45)' }}>{stage.code}</div>
-          <h2 style={{ marginTop: '0.5rem', fontFamily: 'system-ui, sans-serif', fontSize: '1.875rem', fontWeight: 700, letterSpacing: '-0.02em', color: 'oklch(0.93 0.005 250)' }}>{stage.title}</h2>
-          <p style={{ marginTop: '1rem', fontFamily: 'monospace', fontSize: '11px', lineHeight: 1.7, color: 'oklch(0.62 0.01 250)' }}>
+          <div style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.4em', color: 'oklch(0.72 0.19 45)' }}>{stage.code}</div>
+          <h2 style={{ marginTop: '0.5rem', fontFamily: '"Inter", system-ui, sans-serif', fontSize: '1.875rem', fontWeight: 700, letterSpacing: '-0.02em', color: 'oklch(0.93 0.005 250)' }}>{stage.title}</h2>
+          <p style={{ marginTop: '1rem', fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', lineHeight: 1.7, color: 'oklch(0.62 0.01 250)' }}>
             {stage.description}
           </p>
         </div>
@@ -123,28 +123,28 @@ export function Hud({ stageIndex, percent, visible, introVisible, muted, narrati
           <span className="absolute bottom-0 right-0 h-3 w-3" style={{ borderRight: '2px solid oklch(0.78 0.12 215)', borderBottom: '2px solid oklch(0.78 0.12 215)' }} aria-hidden="true" />
 
           <div className="flex items-center justify-between" style={{ color: 'oklch(0.78 0.12 215)' }}>
-            <span style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.35em' }}>MACHINE DETECTED</span>
+            <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.35em' }}>MACHINE DETECTED</span>
             <RadarIcon />
           </div>
-          <div style={{ marginTop: '0.75rem', minHeight: '2.5rem', fontFamily: 'system-ui, sans-serif', fontSize: '14px', fontWeight: 700, letterSpacing: '0.05em', color: 'oklch(0.93 0.005 250)' }}>
+          <div style={{ marginTop: '0.75rem', minHeight: '2.5rem', fontFamily: '"Inter", system-ui, sans-serif', fontSize: '14px', fontWeight: 700, letterSpacing: '0.05em', color: 'oklch(0.93 0.005 250)' }}>
             <TypedText text={stage.machine} />
           </div>
 
           <div className="mt-4 flex items-center gap-2">
             <span className={`h-1.5 w-1.5 rounded-full ${isComplete ? '' : 'hud-blink'}`} style={{ background: 'oklch(0.75 0.17 150)' }} aria-hidden="true" />
-            <span style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.25em', color: 'oklch(0.75 0.17 150)' }}>
+            <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.25em', color: 'oklch(0.75 0.17 150)' }}>
               STATUS: {isComplete ? 'COMPLETE' : 'ACTIVE'}
             </span>
           </div>
-          <div style={{ marginTop: '0.25rem', fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.2em', color: 'oklch(0.62 0.01 250)' }}>
+          <div style={{ marginTop: '0.25rem', fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.2em', color: 'oklch(0.62 0.01 250)' }}>
             OPERATION: <span style={{ color: 'oklch(0.93 0.005 250)' }}>{stage.operation}</span>
           </div>
 
           <dl className="mt-4 flex flex-col gap-2" style={{ borderTop: '1px solid oklch(0.93 0.005 250 / 0.12)', paddingTop: '1rem' }}>
             {stage.specs.map((s) => (
               <div key={s.label} className="flex items-baseline justify-between gap-3">
-                <dt style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.15em', color: 'oklch(0.62 0.01 250)' }}>{s.label}</dt>
-                <dd style={{ textAlign: 'right', fontFamily: 'monospace', fontSize: '11px', color: 'oklch(0.78 0.12 215)' }}>{s.value}</dd>
+                <dt style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.15em', color: 'oklch(0.62 0.01 250)' }}>{s.label}</dt>
+                <dd style={{ textAlign: 'right', fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', color: 'oklch(0.78 0.12 215)' }}>{s.value}</dd>
               </div>
             ))}
           </dl>
@@ -155,7 +155,7 @@ export function Hud({ stageIndex, percent, visible, introVisible, muted, narrati
       <div
         className={`absolute inset-x-0 top-20 flex justify-center transition-all duration-700 ${isComplete ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}`}
       >
-        <div style={{ border: '1px solid oklch(0.75 0.17 150 / 0.5)', background: 'oklch(0.75 0.17 150 / 0.1)', padding: '0.75rem 2rem', fontFamily: 'monospace', fontSize: '11px', letterSpacing: '0.4em', color: 'oklch(0.75 0.17 150)', backdropFilter: 'blur(12px)' }}>
+        <div style={{ border: '1px solid oklch(0.75 0.17 150 / 0.5)', background: 'oklch(0.75 0.17 150 / 0.1)', padding: '0.75rem 2rem', fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.4em', color: 'oklch(0.75 0.17 150)', backdropFilter: 'blur(12px)' }}>
           MANUFACTURING COMPLETE — DAKSH TOOLING
         </div>
       </div>
@@ -163,9 +163,9 @@ export function Hud({ stageIndex, percent, visible, introVisible, muted, narrati
       {/* mobile stage strip */}
       <div className={`absolute inset-x-4 top-16 md:hidden ${introVisible ? 'opacity-0' : 'opacity-100'} transition-opacity duration-500`}>
         <div style={{ borderLeft: '2px solid oklch(0.72 0.19 45)', background: 'oklch(0.17 0.012 250 / 65%)', padding: '0.75rem', backdropFilter: 'blur(12px)' }}>
-          <div style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.3em', color: 'oklch(0.72 0.19 45)' }}>{stage.code}</div>
-          <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '1.125rem', fontWeight: 700, color: 'oklch(0.93 0.005 250)' }}>{stage.title}</div>
-          <div style={{ marginTop: '0.25rem', fontFamily: 'monospace', fontSize: '10px', color: 'oklch(0.62 0.01 250)' }}>{stage.machine}</div>
+          <div style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.3em', color: 'oklch(0.72 0.19 45)' }}>{stage.code}</div>
+          <div style={{ fontFamily: '"Inter", system-ui, sans-serif', fontSize: '1.125rem', fontWeight: 700, color: 'oklch(0.93 0.005 250)' }}>{stage.title}</div>
+          <div style={{ marginTop: '0.25rem', fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', color: 'oklch(0.62 0.01 250)' }}>{stage.machine}</div>
         </div>
       </div>
 
@@ -173,7 +173,7 @@ export function Hud({ stageIndex, percent, visible, introVisible, muted, narrati
       <footer
         className={`absolute inset-x-0 bottom-0 px-4 pb-4 transition-opacity duration-500 md:px-8 md:pb-6 ${introVisible ? 'opacity-0' : 'opacity-100'}`}
       >
-        <div className="mb-2 flex items-center justify-between" style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.25em', color: 'oklch(0.62 0.01 250)' }}>
+        <div className="mb-2 flex items-center justify-between" style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.25em', color: 'oklch(0.62 0.01 250)' }}>
           <span>
             MANUFACTURING TIMELINE — <span style={{ color: 'oklch(0.93 0.005 250)' }}>{stage.shortTitle}</span>
           </span>
@@ -217,8 +217,8 @@ export function Hud({ stageIndex, percent, visible, introVisible, muted, narrati
               <div
                 className="hidden text-center md:block"
                 style={{
-                  fontFamily: 'monospace',
-                  fontSize: '9px',
+                  fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                  fontSize: '10px',
                   letterSpacing: '0.05em',
                   transition: 'color 0.2s',
                   color: i === stageIndex
@@ -253,7 +253,7 @@ export function Hud({ stageIndex, percent, visible, introVisible, muted, narrati
             backdropFilter: 'blur(12px)',
             cursor: 'pointer',
             transition: 'color 0.2s, background 0.2s',
-            fontFamily: 'monospace',
+            fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
           }}
           title={narrationMuted ? 'Enable voiceover' : 'Mute voiceover'}
           aria-label={narrationMuted ? 'Enable voiceover narration' : 'Mute voiceover narration'}
@@ -289,7 +289,7 @@ export function Hud({ stageIndex, percent, visible, introVisible, muted, narrati
             backdropFilter: 'blur(12px)',
             cursor: 'pointer',
             transition: 'color 0.2s',
-            fontFamily: 'monospace',
+            fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
           }}
           title={muted ? 'Unmute ambience' : 'Mute ambience'}
           aria-label={muted ? 'Unmute ambience' : 'Mute ambience'}
@@ -326,8 +326,8 @@ export function Hud({ stageIndex, percent, visible, introVisible, muted, narrati
             color: stageIndex === 0 ? 'oklch(0.93 0.005 250 / 0.2)' : 'oklch(0.62 0.01 250)',
             backdropFilter: 'blur(12px)',
             cursor: stageIndex === 0 ? 'not-allowed' : 'pointer',
-            fontFamily: 'monospace',
-            fontSize: '10px',
+            fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+            fontSize: '11px',
             letterSpacing: '0.25em',
             transition: 'color 0.2s, background 0.2s, border-color 0.2s',
           }}
@@ -355,8 +355,8 @@ export function Hud({ stageIndex, percent, visible, introVisible, muted, narrati
             border: '1px solid oklch(0.78 0.12 215 / 0.3)',
             background: 'oklch(0.17 0.012 250 / 70%)',
             backdropFilter: 'blur(12px)',
-            fontFamily: 'monospace',
-            fontSize: '10px',
+            fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+            fontSize: '11px',
             letterSpacing: '0.25em',
             color: 'oklch(0.78 0.12 215)',
             whiteSpace: 'nowrap',
@@ -380,8 +380,8 @@ export function Hud({ stageIndex, percent, visible, introVisible, muted, narrati
             color: stageIndex === STAGE_COUNT - 1 ? 'oklch(0.93 0.005 250 / 0.2)' : 'oklch(0.72 0.19 45)',
             backdropFilter: 'blur(12px)',
             cursor: stageIndex === STAGE_COUNT - 1 ? 'not-allowed' : 'pointer',
-            fontFamily: 'monospace',
-            fontSize: '10px',
+            fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+            fontSize: '11px',
             letterSpacing: '0.25em',
             transition: 'color 0.2s, background 0.2s, border-color 0.2s',
             borderColor: stageIndex === STAGE_COUNT - 1 ? 'oklch(0.93 0.005 250 / 0.15)' : 'oklch(0.72 0.19 45 / 0.4)',

@@ -81,11 +81,11 @@ export function LandingPage({ onEnter }: LandingPageProps) {
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <span className="hud-blink" style={{ width: '6px', height: '6px', borderRadius: '9999px', background: 'oklch(0.72 0.19 45)', display: 'block' }} />
-          <span style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.35em', color: 'oklch(0.62 0.01 250)' }}>
+          <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.35em', color: 'oklch(0.62 0.01 250)' }}>
             ISO 9001:2015 CERTIFIED
           </span>
         </div>
-        <span style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.25em', color: 'oklch(0.62 0.01 250)' }}>
+        <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.25em', color: 'oklch(0.62 0.01 250)' }}>
           PIMPRI CHINCHWAD, PUNE — INDIA
         </span>
       </div>
@@ -118,20 +118,20 @@ export function LandingPage({ onEnter }: LandingPageProps) {
           }}
         >
           <span style={{ width: '6px', height: '6px', borderRadius: '9999px', background: 'oklch(0.72 0.19 45)' }} />
-          <span style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.4em', color: 'oklch(0.72 0.19 45)' }}>
+          <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.4em', color: 'oklch(0.72 0.19 45)' }}>
             OSSNAM ENGINEERING GROUP
           </span>
         </div>
 
         {/* Company name */}
         <div className="landing-in landing-in-delay-2">
-          <div style={{ fontFamily: 'monospace', fontSize: '11px', letterSpacing: '0.6em', color: 'oklch(0.62 0.01 250)', marginBottom: '0.5rem' }}>
+          <div style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.6em', color: 'oklch(0.62 0.01 250)', marginBottom: '0.5rem' }}>
             DAKSH
           </div>
-          <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 'clamp(3rem, 10vw, 7rem)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 0.9, color: 'oklch(0.93 0.005 250)' }}>
+          <div style={{ fontFamily: '"Inter", system-ui, -apple-system, sans-serif', fontSize: 'clamp(3rem, 10vw, 7rem)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 0.9, color: 'oklch(0.93 0.005 250)' }}>
             TOOLING
           </div>
-          <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 'clamp(1rem, 3vw, 1.5rem)', fontWeight: 300, letterSpacing: '0.2em', color: 'oklch(0.72 0.19 45)', marginTop: '0.375rem', textTransform: 'uppercase' }}>
+          <div style={{ fontFamily: '"Inter", system-ui, -apple-system, sans-serif', fontSize: 'clamp(1rem, 3vw, 1.5rem)', fontWeight: 300, letterSpacing: '0.2em', color: 'oklch(0.72 0.19 45)', marginTop: '0.375rem', textTransform: 'uppercase' }}>
             SOLUTIONS
           </div>
         </div>
@@ -147,7 +147,7 @@ export function LandingPage({ onEnter }: LandingPageProps) {
         <h1
           className="landing-in landing-in-delay-3"
           style={{
-            fontFamily: 'system-ui, -apple-system, sans-serif',
+            fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
             fontSize: 'clamp(1.25rem, 3.5vw, 2rem)',
             fontWeight: 600,
             letterSpacing: '-0.01em',
@@ -166,7 +166,7 @@ export function LandingPage({ onEnter }: LandingPageProps) {
         <p
           className="landing-in landing-in-delay-4"
           style={{
-            fontFamily: 'monospace',
+            fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
             fontSize: '13px',
             lineHeight: 1.8,
             color: 'oklch(0.62 0.01 250)',
@@ -184,8 +184,8 @@ export function LandingPage({ onEnter }: LandingPageProps) {
             <span
               key={tag}
               style={{
-                fontFamily: 'monospace',
-                fontSize: '9px',
+                fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                fontSize: '10px',
                 letterSpacing: '0.25em',
                 color: 'oklch(0.78 0.12 215 / 0.8)',
                 border: '1px solid oklch(0.78 0.12 215 / 0.2)',
@@ -209,7 +209,7 @@ export function LandingPage({ onEnter }: LandingPageProps) {
             border: '1px solid oklch(0.72 0.19 45 / 0.7)',
             background: 'oklch(0.72 0.19 45 / 0.12)',
             color: 'oklch(0.72 0.19 45)',
-            fontFamily: 'monospace',
+            fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
             fontSize: '13px',
             letterSpacing: '0.35em',
             cursor: 'pointer',
@@ -229,7 +229,7 @@ export function LandingPage({ onEnter }: LandingPageProps) {
         </button>
 
         {/* Hint text */}
-        <p className="landing-in landing-in-delay-5" style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.2em', color: 'oklch(0.62 0.01 250 / 0.6)' }}>
+        <p className="landing-in landing-in-delay-5" style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.2em', color: 'oklch(0.62 0.01 250 / 0.6)' }}>
           INTERACTIVE 3D DIGITAL MANUFACTURING EXPERIENCE
         </p>
       </div>
@@ -251,13 +251,13 @@ export function LandingPage({ onEnter }: LandingPageProps) {
           transition: 'opacity 0.6s ease 0.4s',
         }}
       >
-        <span style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.2em', color: 'oklch(0.62 0.01 250 / 0.5)' }}>
+        <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.2em', color: 'oklch(0.62 0.01 250 / 0.5)' }}>
           PLOT NO. 54/26, D-II BLOCK
         </span>
-        <span style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.2em', color: 'oklch(0.62 0.01 250 / 0.5)' }}>
+        <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.2em', color: 'oklch(0.62 0.01 250 / 0.5)' }}>
           GSTIN: 27ARDPG2718D1Z8
         </span>
-        <span style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.2em', color: 'oklch(0.62 0.01 250 / 0.5)' }}>
+        <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.2em', color: 'oklch(0.62 0.01 250 / 0.5)' }}>
           dakshtooling@gmail.com
         </span>
       </div>

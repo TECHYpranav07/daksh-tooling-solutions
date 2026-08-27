@@ -126,13 +126,13 @@ export function ToolingExcellenceSection() {
           <div>
             <div className="flex items-center gap-2 mb-1">
               <Sparkles size={13} style={{ color: c.amber }} />
-              <span style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.35em', color: c.amber, fontWeight: 700 }}>
+              <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.35em', color: c.amber, fontWeight: 700 }}>
                 SECTION 03 — CORE STRENGTH
               </span>
             </div>
             <h2
               style={{
-                fontFamily: 'system-ui, -apple-system, sans-serif',
+                fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
                 fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
                 fontWeight: 800,
                 letterSpacing: '-0.02em',
@@ -145,7 +145,7 @@ export function ToolingExcellenceSection() {
 
           {/* Core Advantage Statement Pill */}
           <div className="p-3 border border-[oklch(0.72_0.19_45_/_30%)] bg-[oklch(0.72_0.19_45_/_8%)] backdrop-blur-md max-w-lg">
-            <p style={{ fontFamily: 'monospace', fontSize: '10.5px', color: c.amber, fontWeight: 600, lineHeight: 1.4 }}>
+            <p style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10.5px', color: c.amber, fontWeight: 600, lineHeight: 1.4 }}>
               “Tooling is not a support function at Daksh Tooling Solutions — it is our core competitive advantage.”
             </p>
           </div>
@@ -176,13 +176,13 @@ export function ToolingExcellenceSection() {
                   }}
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <span style={{ fontFamily: 'monospace', fontSize: '10px', fontWeight: 800, color: color }}>
+                    <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', fontWeight: 800, color: color }}>
                       {pillar.code}
                     </span>
                     <Icon size={16} style={{ color: isSelected ? color : c.body, flexShrink: 0 }} />
                     <span 
                       style={{ 
-                        fontFamily: 'system-ui', 
+                        fontFamily: '"Inter", system-ui, sans-serif', 
                         fontSize: '13px', 
                         fontWeight: isSelected ? 700 : 600, 
                         color: isSelected ? c.heading : c.body 
@@ -195,8 +195,8 @@ export function ToolingExcellenceSection() {
 
                   <span 
                     style={{ 
-                      fontFamily: 'monospace', 
-                      fontSize: '9px', 
+                      fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', 
+                      fontSize: '10px', 
                       color: isSelected ? color : c.body, 
                       fontWeight: 700 
                     }} 
@@ -230,24 +230,24 @@ export function ToolingExcellenceSection() {
                 <div className="flex items-center justify-between pb-3 mb-4 border-b border-[oklch(0.93_0.005_250_/_10%)]">
                   <div className="flex items-center gap-2">
                     <Activity size={13} style={{ color: activeColor }} />
-                    <span style={{ fontFamily: 'monospace', fontSize: '9px', letterSpacing: '0.25em', color: activeColor, fontWeight: 700 }}>
+                    <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10px', letterSpacing: '0.25em', color: activeColor, fontWeight: 700 }}>
                       PILLAR TELEMETRY — {activePillar.code}
                     </span>
                   </div>
-                  <span style={{ fontFamily: 'monospace', fontSize: '9px', color: c.body, letterSpacing: '0.1em' }}>
+                  <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10px', color: c.body, letterSpacing: '0.1em' }}>
                     IN-HOUSE TOOL ROOM PROTOCOL
                   </span>
                 </div>
 
                 {/* Main Content */}
                 <div className="mb-4">
-                  <div style={{ fontFamily: 'monospace', fontSize: '9px', letterSpacing: '0.2em', color: activeColor, fontWeight: 700, marginBottom: '0.2rem' }}>
+                  <div style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10px', letterSpacing: '0.2em', color: activeColor, fontWeight: 700, marginBottom: '0.2rem' }}>
                     {activePillar.tagline}
                   </div>
-                  <h3 style={{ fontFamily: 'system-ui', fontSize: '1.35rem', fontWeight: 800, color: c.heading, marginBottom: '0.5rem', lineHeight: 1.2 }}>
+                  <h3 style={{ fontFamily: '"Inter", system-ui, sans-serif', fontSize: '1.35rem', fontWeight: 800, color: c.heading, marginBottom: '0.5rem', lineHeight: 1.2 }}>
                     {activePillar.title}
                   </h3>
-                  <p style={{ fontFamily: 'monospace', fontSize: '11px', color: c.body, lineHeight: 1.6, marginBottom: '1rem' }}>
+                  <p style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', color: c.body, lineHeight: 1.6, marginBottom: '1rem' }}>
                     {activePillar.desc}
                   </p>
                 </div>
@@ -257,7 +257,7 @@ export function ToolingExcellenceSection() {
                   {activePillar.highlights.map((h, i) => (
                     <div key={i} className="flex items-center gap-2 p-2 border border-[oklch(0.93_0.005_250_/_8%)] bg-[oklch(0.14_0.012_250_/_50%)]">
                       <CheckCircle2 size={14} style={{ color: activeColor, flexShrink: 0 }} />
-                      <span style={{ fontFamily: 'monospace', fontSize: '10px', color: c.heading, fontWeight: 600 }}>
+                      <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', color: c.heading, fontWeight: 600 }}>
                         {h}
                       </span>
                     </div>
@@ -267,14 +267,14 @@ export function ToolingExcellenceSection() {
 
               {/* Metric Footer Pill */}
               <div className="pt-3 border-t border-[oklch(0.93_0.005_250_/_10%)] flex items-center justify-between">
-                <span style={{ fontFamily: 'monospace', fontSize: '9px', letterSpacing: '0.15em', color: c.body }}>
+                <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10px', letterSpacing: '0.15em', color: c.body }}>
                   BENCHMARK SPECIFICATION:
                 </span>
                 <div className="flex items-center gap-2">
-                  <span style={{ fontFamily: 'system-ui', fontSize: '1.2rem', fontWeight: 900, color: activeColor, lineHeight: 1 }}>
+                  <span style={{ fontFamily: '"Inter", system-ui, sans-serif', fontSize: '1.2rem', fontWeight: 900, color: activeColor, lineHeight: 1 }}>
                     {activePillar.metric}
                   </span>
-                  <span style={{ fontFamily: 'monospace', fontSize: '8.5px', color: activeColor, letterSpacing: '0.15em', fontWeight: 700 }}>
+                  <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '8.5px', color: activeColor, letterSpacing: '0.15em', fontWeight: 700 }}>
                     {activePillar.metricLabel}
                   </span>
                 </div>
@@ -292,14 +292,14 @@ export function ToolingExcellenceSection() {
               key={item.label}
               className="flex items-center gap-3 p-2.5 border border-[oklch(0.93_0.005_250_/_8%)] bg-[oklch(0.12_0.01_250_/_40%)]"
             >
-              <span style={{ fontFamily: 'system-ui', fontSize: '1.1rem', fontWeight: 800, color: c.amber, lineHeight: 1 }}>
+              <span style={{ fontFamily: '"Inter", system-ui, sans-serif', fontSize: '1.1rem', fontWeight: 800, color: c.amber, lineHeight: 1 }}>
                 {item.metric}
               </span>
               <div>
-                <div style={{ fontFamily: 'monospace', fontSize: '9px', color: c.heading, fontWeight: 700, letterSpacing: '0.1em' }}>
+                <div style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10px', color: c.heading, fontWeight: 700, letterSpacing: '0.1em' }}>
                   {item.label}
                 </div>
-                <div style={{ fontFamily: 'monospace', fontSize: '8px', color: c.body }}>
+                <div style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10px', color: c.body }}>
                   {item.sub}
                 </div>
               </div>

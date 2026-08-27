@@ -17,8 +17,8 @@ export function ManufacturingJourneySection({ onLaunch }: ManufacturingJourneySe
         <div className="mb-16 text-center">
           <div
             style={{
-              fontFamily: 'monospace',
-              fontSize: '10px',
+              fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+              fontSize: '16.5px',
               letterSpacing: '0.4em',
               color: c.amber,
               marginBottom: '1rem',
@@ -28,7 +28,7 @@ export function ManufacturingJourneySection({ onLaunch }: ManufacturingJourneySe
           </div>
           <h2
             style={{
-              fontFamily: 'system-ui, -apple-system, sans-serif',
+              fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
               fontSize: 'clamp(2rem, 5vw, 3.5rem)',
               fontWeight: 700,
               letterSpacing: '-0.02em',
@@ -40,8 +40,8 @@ export function ManufacturingJourneySection({ onLaunch }: ManufacturingJourneySe
           </h2>
           <p
             style={{
-              fontFamily: 'monospace',
-              fontSize: '14px',
+              fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+              fontSize: '16.5px',
               letterSpacing: '0.05em',
               color: c.body,
               maxWidth: '48rem',
@@ -78,8 +78,8 @@ export function ManufacturingJourneySection({ onLaunch }: ManufacturingJourneySe
                 <span style={{ width: '6px', height: '6px', borderRadius: '9999px', background: c.cyan }} />
                 <span
                   style={{
-                    fontFamily: 'monospace',
-                    fontSize: '9px',
+                    fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                    fontSize: '15.5px',
                     letterSpacing: '0.3em',
                     color: c.cyan,
                   }}
@@ -89,7 +89,7 @@ export function ManufacturingJourneySection({ onLaunch }: ManufacturingJourneySe
               </div>
               <h3
                 style={{
-                  fontFamily: 'system-ui, -apple-system, sans-serif',
+                  fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
                   fontSize: '1.25rem',
                   fontWeight: 600,
                   color: c.heading,
@@ -100,8 +100,8 @@ export function ManufacturingJourneySection({ onLaunch }: ManufacturingJourneySe
               </h3>
               <p
                 style={{
-                  fontFamily: 'monospace',
-                  fontSize: '11px',
+                  fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                  fontSize: '16.5px',
                   letterSpacing: '0.05em',
                   color: c.body,
                   marginBottom: '0.75rem',
@@ -119,8 +119,8 @@ export function ManufacturingJourneySection({ onLaunch }: ManufacturingJourneySe
               />
               <p
                 style={{
-                  fontFamily: 'monospace',
-                  fontSize: '10px',
+                  fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                  fontSize: '16.5px',
                   letterSpacing: '0.15em',
                   color: c.cyan,
                 }}
@@ -144,7 +144,7 @@ export function ManufacturingJourneySection({ onLaunch }: ManufacturingJourneySe
           <div className="hud-flicker" style={{ marginBottom: '2rem' }}>
             <h3
               style={{
-                fontFamily: 'system-ui, -apple-system, sans-serif',
+                fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
                 fontSize: 'clamp(1.5rem, 3vw, 2rem)',
                 fontWeight: 600,
                 color: c.heading,
@@ -155,8 +155,8 @@ export function ManufacturingJourneySection({ onLaunch }: ManufacturingJourneySe
             </h3>
             <p
               style={{
-                fontFamily: 'monospace',
-                fontSize: '12px',
+                fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                fontSize: '15px',
                 letterSpacing: '0.1em',
                 color: c.body,
                 maxWidth: '42rem',
@@ -179,8 +179,8 @@ export function ManufacturingJourneySection({ onLaunch }: ManufacturingJourneySe
               border: `1px solid ${c.amberA70}`,
               background: c.amberA12,
               color: c.amber,
-              fontFamily: 'monospace',
-              fontSize: '13px',
+              fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+              fontSize: '15.5px',
               letterSpacing: '0.35em',
               cursor: 'pointer',
               transition: 'background 0.25s ease, color 0.25s ease',
@@ -201,8 +201,8 @@ export function ManufacturingJourneySection({ onLaunch }: ManufacturingJourneySe
 
           <p
             style={{
-              fontFamily: 'monospace',
-              fontSize: '10px',
+              fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+              fontSize: '16.5px',
               letterSpacing: '0.2em',
               color: c.bodyLight,
               marginTop: '1.5rem',

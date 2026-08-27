@@ -34,8 +34,8 @@ function FormField({
   const sharedStyle: React.CSSProperties = {
     width: '100%',
     padding: '0.85rem 1rem',
-    fontFamily: 'monospace',
-    fontSize: '12px',
+    fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+    fontSize: '15px',
     letterSpacing: '0.03em',
     color: c.heading,
     background: focused ? 'oklch(0.16 0.012 250 / 80%)' : 'oklch(0.14 0.012 250 / 60%)',
@@ -51,8 +51,8 @@ function FormField({
         htmlFor={name}
         style={{
           display: 'block',
-          fontFamily: 'monospace',
-          fontSize: '9px',
+          fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+          fontSize: '15.5px',
           fontWeight: 700,
           letterSpacing: '0.3em',
           color: focused ? c.amber : c.body,
@@ -191,8 +191,8 @@ export function ContactSection() {
         <div className="mb-12">
           <div
             style={{
-              fontFamily: 'monospace',
-              fontSize: '10px',
+              fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+              fontSize: '16.5px',
               letterSpacing: '0.4em',
               color: c.amber,
               marginBottom: '0.75rem',
@@ -202,7 +202,7 @@ export function ContactSection() {
           </div>
           <h2
             style={{
-              fontFamily: 'system-ui, -apple-system, sans-serif',
+              fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
               fontSize: 'clamp(2rem, 5vw, 3.5rem)',
               fontWeight: 700,
               letterSpacing: '-0.02em',
@@ -214,8 +214,8 @@ export function ContactSection() {
           </h2>
           <p
             style={{
-              fontFamily: 'monospace',
-              fontSize: '13px',
+              fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+              fontSize: '15.5px',
               letterSpacing: '0.05em',
               color: c.body,
               maxWidth: '48rem',
@@ -248,13 +248,13 @@ export function ContactSection() {
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <Icon size={22} style={{ color: c.amber }} />
-                    <span style={{ fontFamily: 'monospace', fontSize: '9px', letterSpacing: '0.2em', color: c.bodyLight }}>
+                    <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '15.5px', letterSpacing: '0.2em', color: c.bodyLight }}>
                       0{index + 1}
                     </span>
                   </div>
                   <h3
                     style={{
-                      fontFamily: 'system-ui, -apple-system, sans-serif',
+                      fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
                       fontSize: '1rem',
                       fontWeight: 700,
                       color: c.heading,
@@ -268,8 +268,8 @@ export function ContactSection() {
                     <p
                       key={i}
                       style={{
-                        fontFamily: 'monospace',
-                        fontSize: '10px',
+                        fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                        fontSize: '16.5px',
                         lineHeight: 1.7,
                         color: c.body,
                       }}
@@ -287,7 +287,7 @@ export function ContactSection() {
                   className="mt-4 flex items-center justify-between p-2 border border-[oklch(0.72_0.19_45_/_30%)] bg-[oklch(0.72_0.19_45_/_8%)] transition-all duration-200 hover:border-[oklch(0.72_0.19_45)] hover:bg-[oklch(0.72_0.19_45_/_20%)]"
                   style={{ textDecoration: 'none' }}
                 >
-                  <span style={{ fontFamily: 'monospace', fontSize: '8px', fontWeight: 700, letterSpacing: '0.15em', color: c.amber }}>
+                  <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '15.5px', fontWeight: 700, letterSpacing: '0.15em', color: c.amber }}>
                     {card.action.label}
                   </span>
                   <ExternalLink size={11} style={{ color: c.amber }} />
@@ -354,7 +354,7 @@ export function ContactSection() {
             <div>
               <h3
                 style={{
-                  fontFamily: 'system-ui, -apple-system, sans-serif',
+                  fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
                   fontSize: '1rem',
                   fontWeight: 700,
                   color: c.heading,
@@ -363,7 +363,7 @@ export function ContactSection() {
               >
                 Contact Us
               </h3>
-              <p style={{ fontFamily: 'monospace', fontSize: '10px', color: c.body, letterSpacing: '0.05em' }}>
+              <p style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', color: c.body, letterSpacing: '0.05em' }}>
                 Send your enquiry directly
               </p>
             </div>
@@ -376,8 +376,8 @@ export function ContactSection() {
                 padding: '0.5rem 1.25rem',
                 background: c.amber,
                 color: 'oklch(0.13 0.01 250)',
-                fontFamily: 'monospace',
-                fontSize: '9px',
+                fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                fontSize: '15.5px',
                 fontWeight: 700,
                 letterSpacing: '0.2em',
                 transition: 'all 0.3s ease',
@@ -400,10 +400,10 @@ export function ContactSection() {
             <div className="flex items-center gap-3">
               <span className="hud-blink" style={{ width: '8px', height: '8px', borderRadius: '50%', background: c.amber, display: 'block' }} />
               <div>
-                <h3 style={{ fontFamily: 'system-ui', fontSize: '1.1rem', fontWeight: 700, color: c.heading }}>
+                <h3 style={{ fontFamily: '"Inter", system-ui, sans-serif', fontSize: '1.1rem', fontWeight: 700, color: c.heading }}>
                   Interactive Facility Map — MIDC Chinchwad
                 </h3>
-                <p style={{ fontFamily: 'monospace', fontSize: '10px', color: c.body, letterSpacing: '0.05em' }}>
+                <p style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', color: c.body, letterSpacing: '0.05em' }}>
                   Plot No. 54/26, D-II Block, MIDC, Chinchwad, Pune, Maharashtra 411019
                 </p>
               </div>
@@ -417,7 +417,7 @@ export function ContactSection() {
               style={{ textDecoration: 'none' }}
             >
               <MapPin size={14} style={{ color: c.amber }} />
-              <span style={{ fontFamily: 'monospace', fontSize: '10px', fontWeight: 700, letterSpacing: '0.15em', color: c.amber }}>
+              <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', fontWeight: 700, letterSpacing: '0.15em', color: c.amber }}>
                 DIRECTIONS IN MAPS ↗
               </span>
             </a>
@@ -511,12 +511,12 @@ export function ContactSection() {
 
             {/* Modal Header */}
             <div style={{ marginBottom: '1.75rem' }}>
-              <div style={{ fontFamily: 'monospace', fontSize: '9px', letterSpacing: '0.4em', color: c.amber, marginBottom: '0.5rem' }}>
+              <div style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '15.5px', letterSpacing: '0.4em', color: c.amber, marginBottom: '0.5rem' }}>
                 DAKSH TOOLING SOLUTIONS
               </div>
               <h3
                 style={{
-                  fontFamily: 'system-ui, -apple-system, sans-serif',
+                  fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
                   fontSize: '1.5rem',
                   fontWeight: 700,
                   color: c.heading,
@@ -526,7 +526,7 @@ export function ContactSection() {
                 Send Us a Message
               </h3>
               <div style={{ width: '3rem', height: '2px', background: c.amber, marginBottom: '0.75rem' }} />
-              <p style={{ fontFamily: 'monospace', fontSize: '11px', color: c.body, lineHeight: 1.6 }}>
+              <p style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', color: c.body, lineHeight: 1.6 }}>
                 Share your requirements and we'll respond within 24 hours with a detailed quotation.
               </p>
             </div>
@@ -560,10 +560,10 @@ export function ContactSection() {
                   <CheckCircle size={32} style={{ color: c.green }} />
                 </div>
                 <div>
-                  <p style={{ fontFamily: 'system-ui', fontWeight: 700, fontSize: '16px', color: c.green, marginBottom: '0.35rem' }}>
+                  <p style={{ fontFamily: '"Inter", system-ui, sans-serif', fontWeight: 700, fontSize: '16px', color: c.green, marginBottom: '0.35rem' }}>
                     Message Sent Successfully!
                   </p>
-                  <p style={{ fontFamily: 'monospace', fontSize: '10px', color: c.body, letterSpacing: '0.1em' }}>
+                  <p style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', color: c.body, letterSpacing: '0.1em' }}>
                     WE'LL GET BACK TO YOU WITHIN 24 HOURS
                   </p>
                 </div>
@@ -590,7 +590,7 @@ export function ContactSection() {
                     }}
                   >
                     <AlertCircle size={14} style={{ color: 'oklch(0.62 0.2 25)', flexShrink: 0 }} />
-                    <span style={{ fontFamily: 'monospace', fontSize: '10px', color: 'oklch(0.62 0.2 25)' }}>
+                    <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', color: 'oklch(0.62 0.2 25)' }}>
                       {errorMsg}
                     </span>
                   </div>
@@ -608,8 +608,8 @@ export function ContactSection() {
                     gap: '0.6rem',
                     width: '100%',
                     padding: '0.9rem 1.5rem',
-                    fontFamily: 'monospace',
-                    fontSize: '11px',
+                    fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                    fontSize: '16.5px',
                     fontWeight: 700,
                     letterSpacing: '0.2em',
                     color: status === 'submitting' ? c.body : 'oklch(0.13 0.01 250)',

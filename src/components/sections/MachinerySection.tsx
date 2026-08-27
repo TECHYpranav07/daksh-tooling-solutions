@@ -19,12 +19,12 @@ const MACHINES: Machine[] = [
   // VMC & 5-Axis
   {
     id: 'hurco-5axis',
-    title: '5 Axis Swivel Head Rotary Table CNC Mill',
-    make: 'HURCO (Variaxis C-600)',
+    title: '5-Axis Swivel Head Rotary Table CNC Mill',
+    make: 'HURCO',
     category: 'vmc',
     categoryLabel: '5-AXIS & VMC',
-    spec: '850 mm | Chuck Size: Dia 700 mm | XYZ: 1524x660x610mm',
-    image: '/images/machinery/hurco_5axis.jpg',
+    spec: 'XYZ Travel: 1524 × 660 × 610 mm | Chuck: Dia 700 mm',
+    image: '/images/pdf_extracted/page_11_img_11_660x413.jpeg',
     description: 'High-precision 5-axis simultaneous CNC milling for intricate 3D mould cavities and complex core geometries.',
     highlights: ['5-Axis Simultaneous Interpolation', 'High-Rigidity Swivel Head', 'Complex Mould Pocketing'],
     qty: '01 Unit',
@@ -36,9 +36,33 @@ const MACHINES: Machine[] = [
     category: 'vmc',
     categoryLabel: '5-AXIS & VMC',
     spec: 'Bed Size: 2100 × 1400 × 800 mm (XYZ)',
-    image: '/images/machinery/stm_double_column.jpg',
+    image: '/images/pdf_extracted/page_11_img_3_1114x699.jpeg',
     description: 'Heavy-duty double column machining center for large-scale tool and die work with exceptional rigidity and accuracy.',
     highlights: ['Heavy-Duty Tool & Die Milling', '2.1m Bed Travel', 'High Load Capacity'],
+    qty: '01 Unit',
+  },
+  {
+    id: 'stm-vl1570',
+    title: 'Vertical Machining Centre (VL1570)',
+    make: 'STM',
+    category: 'vmc',
+    categoryLabel: '5-AXIS & VMC',
+    spec: 'Bed Size: 1500 × 700 × 700 mm (XYZ)',
+    image: '/images/pdf_extracted/page_11_img_4_478x338.jpeg',
+    description: 'Heavy-duty 3-axis VMC equipped with a wide work table, high torque spindle, and heavy load carrying capacity for large die plates.',
+    highlights: ['Heavy-Duty Die Milling', '1.5m Table Travel', 'High-Torque Spindle'],
+    qty: '01 Unit',
+  },
+  {
+    id: 'takumi-h12e',
+    title: 'Vertical Machining Centre (Takumi H12E)',
+    make: 'TAKUMI',
+    category: 'vmc',
+    categoryLabel: '5-AXIS & VMC',
+    spec: 'Bed Size: 1360 × 960 mm | XYZ: 1250 × 950 × 580 mm',
+    image: '/images/machinery/takumi_h12e.jpg',
+    description: 'Delivers exceptional rigidity and thermal stability for high-precision, high-speed machining.',
+    highlights: ['Thermal Stability', 'High-Speed Machining', 'Consistent Accuracy'],
     qty: '01 Unit',
   },
   {
@@ -48,21 +72,9 @@ const MACHINES: Machine[] = [
     category: 'vmc',
     categoryLabel: '5-AXIS & VMC',
     spec: 'Bed Size: 762 × 410 × 510 mm (XYZ)',
-    image: '/images/machinery/mazak_vcez410.jpg',
+    image: '/images/pdf_extracted/page_12_img_12_1179x730.jpeg',
     description: 'High-precision VMC for complex 3D machining operations with superior surface finishes.',
     highlights: ['Superior Surface Finish', 'High-Precision 3D Milling', 'Mazatrol CNC Control'],
-    qty: '01 Unit',
-  },
-  {
-    id: 'takumi-h12e',
-    title: 'Vertical Machining Centre (Takumi H12E)',
-    make: 'TAKUMI',
-    category: 'vmc',
-    categoryLabel: '5-AXIS & VMC',
-    spec: 'Bed Size: 1360 × 960 mm | XYZ: 1250x950x580 mm',
-    image: '/images/machinery/takumi_h12e.jpg',
-    description: 'Delivers exceptional rigidity and thermal stability for high-precision, high-speed machining.',
-    highlights: ['Thermal Stability', 'High-Speed Machining', 'Consistent Accuracy'],
     qty: '01 Unit',
   },
   {
@@ -72,7 +84,7 @@ const MACHINES: Machine[] = [
     category: 'vmc',
     categoryLabel: '5-AXIS & VMC',
     spec: 'Bed Size: 1100 × 600 × 600 mm (XYZ)',
-    image: '/images/machinery/bfw_chakra.jpg',
+    image: '/images/pdf_extracted/page_12_img_4_528x482.jpeg',
     description: 'Versatile vertical machining center for rapid roughing and finishing of die components.',
     highlights: ['Heavy Cutting Capability', 'High Spindle Power', 'Rapid Tool Change'],
     qty: '01 Unit',
@@ -84,7 +96,7 @@ const MACHINES: Machine[] = [
     category: 'vmc',
     categoryLabel: '5-AXIS & VMC',
     spec: 'Bed Size: 660 × 406 × 508 mm (XYZ)',
-    image: '/images/machinery/hurco_vm10i.jpg',
+    image: '/images/pdf_extracted/page_12_img_5_763x760.jpeg',
     description: 'Dedicated high-speed VMC engineered specifically for precision graphite electrode machining.',
     highlights: ['Graphite Dust Extraction', 'High Spindle RPM', 'Electrode Production'],
     qty: '01 Unit',
@@ -98,19 +110,19 @@ const MACHINES: Machine[] = [
     category: 'edm',
     categoryLabel: 'EDM & DIE SPOTTING',
     spec: 'Bed Size: 2100 × 1800 mm | Capacity: 200 Ton',
-    image: '/images/machinery/sprex_die_spotting.jpg',
+    image: '/images/pdf_extracted/page_12_img_13_889x872.jpeg',
     description: '200-Ton die spotting press ensuring 98% blue matching, excellent core box parallelism and zero manual blue matching.',
     highlights: ['200 Ton Capacity', '98% Blue Matching', 'Core Box Flatness & Parallelism'],
     qty: '01 Unit',
   },
   {
     id: 'stm-twin-edm',
-    title: 'Twin Head CNC EDM (CNSKITEK)',
+    title: 'Twin Head CNC Spark EDM (CNSKITEK)',
     make: 'STM / CNSKITEK',
     category: 'edm',
     categoryLabel: 'EDM & DIE SPOTTING',
-    spec: 'Bed Size: 1100x1100x800 / 800x500x500 (XYZ)',
-    image: '/images/machinery/stm_twin_edm.jpg',
+    spec: 'Bed Size: 1100 × 1100 × 800 / 800 × 500 × 500 mm (XYZ)',
+    image: '/images/pdf_extracted/page_11_img_2_774x503.jpeg',
     description: 'Equipped with twin spark heads for higher productivity and complex cavity discharge erosion.',
     highlights: ['Twin Spark Head System', 'High Discharge Rate', 'Micro-Finish Sparking'],
     qty: '01 Unit',
@@ -121,8 +133,8 @@ const MACHINES: Machine[] = [
     make: 'EXCETEK',
     category: 'edm',
     categoryLabel: 'EDM & DIE SPOTTING',
-    spec: 'Bed Size: 1500 × 1000 × 495 mm',
-    image: '/images/machinery/excetek_wire_cut.jpg',
+    spec: 'Bed Size: 1500 × 1000 × 500 mm',
+    image: '/images/pdf_extracted/page_11_img_12_747x480.jpeg',
     description: 'Precision wire EDM cutting ejector pin slots, complex die profiles, and sharp internal radii to ±0.003 mm.',
     highlights: ['Sub-Micron Wire Accuracy', 'Large Bed Capacity', 'Automatic Wire Threader'],
     qty: '01 Unit',
@@ -135,7 +147,7 @@ const MACHINES: Machine[] = [
     make: 'MILACRON',
     category: 'molding',
     categoryLabel: 'INJECTION MOLDING',
-    spec: 'Tonnage: 180 Ton | Platen: 510x510 mm | Shot Weight: 336g',
+    spec: 'Tonnage: 180 Ton | Platen: 510 × 510 mm | Shot: 336g',
     image: '/images/machinery/milacron_180t.jpg',
     description: 'High-tonnage horizontal molding machine for engineering plastic parts and automotive components.',
     highlights: ['180 Ton Clamping Force', '336g Shot Capacity', '100% Free Capacity Available'],
@@ -144,11 +156,11 @@ const MACHINES: Machine[] = [
   },
   {
     id: 'milacron-100t',
-    title: 'Injection Moulding Machine 100 Ton',
+    title: 'Injection Moulding Machine 100 Ton / 80 Ton',
     make: 'MILACRON',
     category: 'molding',
     categoryLabel: 'INJECTION MOLDING',
-    spec: 'Tonnage: 100 Ton | Platen: 405x360 mm | Shot Weight: 126g',
+    spec: 'Tonnage: 100T / 80T | Platen: 405 × 360 mm | Shot: 126g',
     image: '/images/machinery/milacron_100t.jpg',
     description: 'Precision horizontal injection molding unit for general and engineering grade thermoplastics.',
     highlights: ['Micro-Processor Control', 'Closed Loop Control', '60% Free Capacity'],
@@ -161,24 +173,50 @@ const MACHINES: Machine[] = [
     make: 'STM',
     category: 'molding',
     categoryLabel: 'INJECTION MOLDING',
-    spec: 'Tonnage: 120 Ton / 80 Ton | Shot Weight: 282g / 105g',
+    spec: 'Tonnage: 120 Ton | Platen: 430 × 430 mm | Shot: 282g',
     image: '/images/machinery/stm_injection_120t.jpg',
-    description: 'Versatile injection molding fleet for plastic housing and automotive interior trim components.',
+    description: 'Versatile injection molding machine for plastic housings, brackets, and automotive interior trim.',
     highlights: ['High Repeatability', 'Energy Efficient Servo Drive', '50% Free Capacity'],
+    qty: '01 Unit',
+    capacity: '50%',
+  },
+  {
+    id: 'stm-injection-80t',
+    title: 'Injection Moulding Machine 80 Ton / 50 Ton',
+    make: 'STM',
+    category: 'molding',
+    categoryLabel: 'INJECTION MOLDING',
+    spec: 'Tonnage: 80T / 50T | Platen: 320 × 320 mm | Shot: 105g',
+    image: '/images/machinery/stm_injection_80t.jpg',
+    description: 'Precision injection molding machine for compact components, technical bushings, and high-tolerance parts.',
+    highlights: ['Compact Footprint', 'Precision Shot Control', '40% Free Capacity'],
+    qty: '01 Unit',
+    capacity: '40%',
+  },
+  {
+    id: 'lizhu-rotary-50t',
+    title: 'Rotary Vertical Injection Moulding Machine 50 Ton',
+    make: 'LIZHU',
+    category: 'molding',
+    categoryLabel: 'INJECTION MOLDING',
+    spec: 'Tonnage: 50 Ton | Rotary Table: Ø 800 mm | Shot: 60g',
+    image: '/images/machinery/lizhu_rotary_50t.jpg',
+    description: 'Vertical rotary clamping system specialized for insert over-molding of stamped metal terminals into plastics.',
+    highlights: ['Rotary Table Insert Molding', 'Metal-to-Plastic Overmolding', 'Hybrid Assembly'],
     qty: '02 Units',
     capacity: '50%',
   },
   {
-    id: 'lizhu-rotary-50t',
-    title: 'Rotary Vertical Injection Moulding Machine',
+    id: 'lizhu-rotary-30t',
+    title: 'Rotary Vertical Injection Moulding Machine 30 Ton',
     make: 'LIZHU',
     category: 'molding',
     categoryLabel: 'INJECTION MOLDING',
-    spec: 'Tonnage: 50 Ton / 30 Ton | Rotary Table: Ø 800 mm',
-    image: '/images/machinery/lizhu_rotary_50t.jpg',
-    description: 'Vertical rotary clamping system specialized for insert over-molding of stamped metal terminals into plastics.',
-    highlights: ['Rotary Table Insert Molding', 'Metal-to-Plastic Overmolding', 'Hybrid Assembly'],
-    qty: '03 Units',
+    spec: 'Tonnage: 30 Ton | Rotary Table: Ø 500 mm | Shot: 30g',
+    image: '/images/machinery/lizhu_rotary_30t.jpg',
+    description: 'Precision vertical rotary injection molding machine for micro insert molding and delicate terminal assemblies.',
+    highlights: ['Micro Insert Molding', 'Vertical Clamping Precision', '50% Free Capacity'],
+    qty: '01 Unit',
     capacity: '50%',
   },
 
@@ -189,8 +227,8 @@ const MACHINES: Machine[] = [
     make: 'AHP',
     category: 'press',
     categoryLabel: 'PRESS SHOP',
-    spec: 'Tonnage: 100 Ton Capacity',
-    image: '/images/machinery/hydraulic_press_100t.jpg',
+    spec: 'Tonnage: 100 Ton Capacity | Deep Drawing & Stamping',
+    image: '/images/pdf_extracted/page_17_img_10_281x342.jpeg',
     description: 'Heavy hydraulic press for deep drawing, compound press operations, and heavy metal stamping.',
     highlights: ['100 Ton Hydraulic Force', 'Deep Drawing', 'Programmable Pressure Cycle'],
     qty: '01 Unit',
@@ -198,26 +236,26 @@ const MACHINES: Machine[] = [
   },
   {
     id: 'mechanical-press',
-    title: 'Mechanical Press Machine (50T & 30T)',
+    title: 'Mechanical Power Press Machines (50T & 30T)',
     make: 'AHP / JASJITH',
     category: 'press',
     categoryLabel: 'PRESS SHOP',
-    spec: 'Tonnage: 50 Ton (3 Qty) | 30 Ton (2 Qty)',
-    image: '/images/machinery/mechanical_press.jpg',
-    description: 'High-speed mechanical power presses for progressive metal stamping and component blanking.',
+    spec: 'Tonnage: 50 Ton (3 Units) & 30 Ton (2 Units)',
+    image: '/images/pdf_extracted/page_17_img_11_219x276.jpeg',
+    description: 'High-speed mechanical power presses for progressive metal stamping, blanking, and compound die operations.',
     highlights: ['High Stroke Speed', 'Progressive Die Operation', 'Ferrous & Non-Ferrous Metals'],
     qty: '05 Units',
     capacity: '50%',
   },
   {
     id: 'pneumatic-press',
-    title: 'Pneumatic Press Machine (63T & 25T)',
+    title: 'Pneumatic Power Press Machines (60T & 25T)',
     make: 'SINGHAL / SEW',
     category: 'press',
     categoryLabel: 'PRESS SHOP',
-    spec: 'Tonnage: 63 Ton & 25/30 Ton',
-    image: '/images/machinery/pneumatic_press.jpg',
-    description: 'Precision pneumatic power presses for clean, high-speed secondary piercing and blanking.',
+    spec: 'Tonnage: 60T/63T (1 Unit) & 25T/30T (1 Unit)',
+    image: '/images/pdf_extracted/page_17_img_3_153x232.jpeg',
+    description: 'Precision pneumatic power presses for clean, high-speed secondary piercing, blanking, and fine stamping.',
     highlights: ['Clean Pneumatic Action', 'High Precision Piercing', '40% Free Capacity'],
     qty: '02 Units',
     capacity: '40%',
@@ -226,12 +264,12 @@ const MACHINES: Machine[] = [
   // Quality Inspection
   {
     id: 'hexagon-scanner',
-    title: 'Hexagon Portable Laser Scanner',
+    title: 'Hexagon Portable Multi-Axis Laser Scanner',
     make: 'HEXAGON',
     category: 'quality',
     categoryLabel: 'QUALITY LAB',
     spec: 'Multi-Axis Portable Articulated Arm Laser Scanner',
-    image: '/images/machinery/hexagon_scanner.jpg',
+    image: '/images/pdf_extracted/page_13_img_2_226x223.jpeg',
     description: '3D optical laser scanning for rapid surface inspection, freeform reverse engineering, and CAD deviation mapping.',
     highlights: ['Non-Contact 3D Scanning', 'Portable Articulated Arm', 'Real-Time CAD Comparison'],
     qty: '01 Unit',
@@ -242,8 +280,8 @@ const MACHINES: Machine[] = [
     make: 'ELECTRONICA',
     category: 'quality',
     categoryLabel: 'QUALITY LAB',
-    spec: 'Measuring Range: 400 × 300 × 200 mm',
-    image: '/images/machinery/cnc_vision_vmm.jpg',
+    spec: 'Measuring Range: 400 × 300 × 200 mm (XYZ)',
+    image: '/images/pdf_extracted/page_13_img_9_307x446.jpeg',
     description: 'Non-contact CNC optical measurement system for micro-feature inspection, edge detection, and profile verification.',
     highlights: ['Automatic Edge Detection', 'CNC Automated Inspection', 'Sub-Micron Optical Resolution'],
     qty: '01 Unit',
@@ -255,7 +293,7 @@ const MACHINES: Machine[] = [
     category: 'quality',
     categoryLabel: 'QUALITY LAB',
     spec: 'Measuring Range: Z-450 mm',
-    image: '/images/machinery/digital_height_gauge.jpg',
+    image: '/images/pdf_extracted/page_13_img_10_228x399.jpeg',
     description: 'Precision motor-driven digital height gauge for accurate 1D/2D dimensional verification of die inserts and plates.',
     highlights: ['Sub-Micron Repeatability', 'Air-Cushion Base', 'Motorized Probe'],
     qty: '01 Unit',
@@ -263,10 +301,10 @@ const MACHINES: Machine[] = [
 ]
 
 const CATEGORIES = [
-  { key: 'all', label: 'ALL MACHINES', count: 19 },
-  { key: 'vmc', label: '5-AXIS & VMC', count: 6 },
+  { key: 'all', label: 'ALL MACHINES', count: 22 },
+  { key: 'vmc', label: '5-AXIS & VMC', count: 7 },
   { key: 'edm', label: 'EDM & DIE SPOTTING', count: 3 },
-  { key: 'molding', label: 'INJECTION MOLDING', count: 4 },
+  { key: 'molding', label: 'INJECTION MOLDING', count: 6 },
   { key: 'press', label: 'PRESS SHOP', count: 3 },
   { key: 'quality', label: 'QUALITY LAB', count: 3 },
 ]
@@ -522,7 +560,7 @@ export function MachinerySection() {
                   <h3
                     style={{
                       fontFamily: 'system-ui, -apple-system, sans-serif',
-                      fontSize: '1.1rem',
+                      fontSize: '1.05rem',
                       fontWeight: 700,
                       color: c.heading,
                       lineHeight: 1.3,
@@ -539,7 +577,7 @@ export function MachinerySection() {
                   <div style={{ fontFamily: 'monospace', fontSize: '10px', color: c.cyan, background: c.cyanA8, padding: '0.35rem 0.6rem', borderLeft: `2px solid ${c.cyan}`, marginBottom: '0.75rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                     {machine.spec}
                   </div>
-                  <p style={{ fontFamily: 'monospace', fontSize: '10px', lineHeight: 1.5, color: c.body, marginBottom: '0.75rem', height: '2.8rem', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                  <p style={{ fontFamily: 'monospace', fontSize: '11px', lineHeight: 1.5, color: c.body, marginBottom: '0.75rem', height: '2.8rem', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                     {machine.description}
                   </p>
                 </div>
@@ -569,8 +607,6 @@ export function MachinerySection() {
           <span>SWIPE OR USE ARROWS TO BROWSE</span>
           <span style={{ color: c.amber }}>SHOWING {filteredMachines.length} MACHINES</span>
         </div>
-
-
 
         {/* Modal for detailed inspection when a card is clicked */}
         {selectedMachine && (
@@ -608,10 +644,10 @@ export function MachinerySection() {
                   <div style={{ fontFamily: 'monospace', fontSize: '10px', letterSpacing: '0.3em', color: c.amber, marginBottom: '0.5rem' }}>
                     {selectedMachine.categoryLabel} · {selectedMachine.qty}
                   </div>
-                  <h3 style={{ fontFamily: 'system-ui', fontSize: '1.5rem', fontWeight: 700, color: c.heading, marginBottom: '0.5rem' }}>
+                  <h3 style={{ fontFamily: 'system-ui', fontSize: '1.4rem', fontWeight: 700, color: c.heading, marginBottom: '0.5rem' }}>
                     {selectedMachine.title}
                   </h3>
-                  <div style={{ fontFamily: 'monospace', fontSize: '12px', color: c.cyan, marginBottom: '1rem', fontWeight: 600 }}>
+                  <div style={{ fontFamily: 'monospace', fontSize: '11px', color: c.cyan, marginBottom: '0.75rem', fontWeight: 600 }}>
                     MAKE: {selectedMachine.make}
                   </div>
                   <div style={{ fontFamily: 'monospace', fontSize: '11px', color: c.heading, background: c.amberA10, borderLeft: `3px solid ${c.amber}`, padding: '0.5rem 0.75rem', marginBottom: '1rem' }}>

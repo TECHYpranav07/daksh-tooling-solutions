@@ -24,7 +24,7 @@ export function ExperienceOverlay({ onClose }: ExperienceOverlayProps) {
           color: 'oklch(0.72 0.19 45)',
           padding: '0.6rem 1.25rem',
           cursor: 'pointer',
-          fontFamily: 'monospace',
+          fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
           fontSize: '11px',
           letterSpacing: '0.3em',
           fontWeight: 700,

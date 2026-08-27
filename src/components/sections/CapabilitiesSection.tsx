@@ -25,8 +25,8 @@ export function CapabilitiesSection() {
         <div className="mb-16">
           <div
             style={{
-              fontFamily: 'monospace',
-              fontSize: '10px',
+              fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+              fontSize: '11px',
               letterSpacing: '0.4em',
               color: 'oklch(0.72 0.19 45)',
               marginBottom: '1rem',
@@ -36,7 +36,7 @@ export function CapabilitiesSection() {
           </div>
           <h2
             style={{
-              fontFamily: 'system-ui, -apple-system, sans-serif',
+              fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
               fontSize: 'clamp(2rem, 5vw, 3.5rem)',
               fontWeight: 700,
               letterSpacing: '-0.02em',
@@ -48,7 +48,7 @@ export function CapabilitiesSection() {
           </h2>
           <p
             style={{
-              fontFamily: 'monospace',
+              fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
               fontSize: '14px',
               letterSpacing: '0.05em',
               color: 'oklch(0.62 0.01 250)',
@@ -83,7 +83,7 @@ export function CapabilitiesSection() {
             >
               <h3
                 style={{
-                  fontFamily: 'system-ui, -apple-system, sans-serif',
+                  fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
                   fontSize: '1.25rem',
                   fontWeight: 600,
                   color: 'oklch(0.93 0.005 250)',
@@ -102,7 +102,7 @@ export function CapabilitiesSection() {
               />
               <p
                 style={{
-                  fontFamily: 'monospace',
+                  fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
                   fontSize: '12px',
                   lineHeight: 1.7,
                   color: 'oklch(0.62 0.01 250)',
