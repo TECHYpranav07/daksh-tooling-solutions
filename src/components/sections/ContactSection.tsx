@@ -38,7 +38,7 @@ function FormField({
     fontSize: '15px',
     letterSpacing: '0.03em',
     color: c.heading,
-    background: focused ? 'oklch(0.16 0.012 250 / 80%)' : 'oklch(0.14 0.012 250 / 60%)',
+    background: focused ? (c.isDark ? 'oklch(0.16 0.012 250 / 80%)' : 'oklch(0.995 0.002 250)') : (c.isDark ? 'oklch(0.14 0.012 250 / 60%)' : 'oklch(0.95 0.006 235 / 80%)'),
     border: `1px solid ${focused ? c.amber : c.border}`,
     outline: 'none',
     transition: 'all 0.3s ease',
@@ -111,12 +111,12 @@ const CARDS = [
     icon: Mail,
     title: 'Email & Contact',
     lines: [
-      'dakshtooling@gmail.com',
+      'SGherade@Dakshtooling.co.in',
       '+91 82087 01793 (Direct)',
       'Business inquiries welcome',
       'Response within 24 hours',
     ],
-    action: { label: 'SEND EMAIL', url: 'mailto:dakshtooling@gmail.com' },
+    action: { label: 'SEND EMAIL', url: 'mailto:SGherade@Dakshtooling.co.in' },
   },
   {
     icon: FileText,
@@ -148,7 +148,7 @@ export function ContactSection() {
     setErrorMsg('')
 
     try {
-      const { error } = await supabase.from('contact_submissions').insert([
+      const { error } = await supabase.from('Contact_Submission').insert([
         {
           name: name.trim(),
           phone: phone.trim(),
@@ -169,10 +169,12 @@ export function ContactSection() {
         setStatus('idle')
         setModalOpen(false)
       }, 3000)
-    } catch (err: unknown) {
+    } catch (err: any) {
+      console.error('Contact form submission error:', err)
       setStatus('error')
-      setErrorMsg(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
-      setTimeout(() => setStatus('idle'), 5000)
+      const msg = err?.message || err?.error_description || (err instanceof Error ? err.message : 'Something went wrong. Please try again.')
+      setErrorMsg(msg)
+      setTimeout(() => setStatus('idle'), 7000)
     }
   }
 
@@ -423,13 +425,13 @@ export function ContactSection() {
             </a>
           </div>
 
-          <div className="relative w-full h-[380px] overflow-hidden border border-[oklch(0.93_0.005_250_/_12%)] bg-[oklch(0.09_0.01_250)]">
+          <div className="relative w-full h-[380px] overflow-hidden" style={{ border: `1px solid ${c.border}`, background: c.bgDeep, boxShadow: c.cardShadow }}>
             <iframe
               title="Daksh Tooling Solutions Location Map"
               src={MAPS_EMBED_URL}
               width="100%"
               height="100%"
-              style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(1.2)' }}
+              style={{ border: 0, filter: c.isDark ? 'invert(90%) hue-rotate(180deg) contrast(1.2)' : 'none' }}
               allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -449,7 +451,7 @@ export function ContactSection() {
             position: 'fixed',
             inset: 0,
             zIndex: 200,
-            background: 'oklch(0.05 0.01 250 / 0.85)',
+            background: c.bgOverlay,
             backdropFilter: 'blur(12px)',
             display: 'flex',
             alignItems: 'center',
@@ -467,8 +469,9 @@ export function ContactSection() {
               maxWidth: '480px',
               maxHeight: '90vh',
               overflowY: 'auto',
-              background: 'oklch(0.14 0.012 250 / 95%)',
-              border: '1px solid oklch(0.72 0.19 45 / 0.4)',
+              background: c.bgModal,
+              border: `1px solid ${c.amberA40}`,
+              boxShadow: c.isDark ? `0 0 40px ${c.amberA15}` : '0 10px 40px rgba(0,0,0,0.15)',
               backdropFilter: 'blur(24px)',
               padding: '2.5rem',
               animation: 'fade-in-up 0.35s ease',

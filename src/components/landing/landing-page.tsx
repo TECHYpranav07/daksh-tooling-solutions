@@ -258,7 +258,7 @@ export function LandingPage({ onEnter }: LandingPageProps) {
           GSTIN: 27ARDPG2718D1Z8
         </span>
         <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.2em', color: 'oklch(0.62 0.01 250 / 0.5)' }}>
-          dakshtooling@gmail.com
+          SGherade@Dakshtooling.co.in
         </span>
       </div>
     </div>

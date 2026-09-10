@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Sun, Moon } from 'lucide-react'
 import { useThemeColors } from '@/hooks/useThemeColors'
+import { useTheme } from '@/context/ThemeContext'
 
 const NAV_LINKS = [
   { label: 'Home', href: '#home' },
@@ -20,6 +21,7 @@ export function Navbar({ onTabSelect }: NavbarProps) {
   const [activeSection, setActiveSection] = useState('home')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const c = useThemeColors()
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -151,10 +153,56 @@ export function Navbar({ onTabSelect }: NavbarProps) {
                   </button>
                 )
               })}
+
+              {/* ☀️/🌙 Theme Toggle Button */}
+              <button
+                onClick={toggleTheme}
+                data-testid="theme-toggle"
+                aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '36px',
+                  height: '36px',
+                  marginLeft: '0.75rem',
+                  border: `1px solid ${c.border}`,
+                  background: c.bgCard,
+                  color: c.amber,
+                  cursor: 'pointer',
+                  transition: 'all 0.25s ease',
+                  borderRadius: '6px',
+                  boxShadow: c.cardShadow,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = c.amberA12
+                  e.currentTarget.style.borderColor = c.amberA40
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = c.bgCard
+                  e.currentTarget.style.borderColor = c.border
+                }}
+              >
+                {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+              </button>
             </div>
 
-            {/* Mobile Button */}
+            {/* Mobile Buttons */}
             <div className="flex items-center gap-2 lg:hidden">
+              {/* Mobile Theme Toggle */}
+              <button
+                onClick={toggleTheme}
+                aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+                style={{
+                  padding: '0.5rem',
+                  color: c.amber,
+                  background: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                }}
+              >
+                {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              </button>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 data-testid="mobile-menu-toggle"
@@ -177,7 +225,7 @@ export function Navbar({ onTabSelect }: NavbarProps) {
       {mobileMenuOpen && (
         <div
           className="fixed inset-0 z-40 lg:hidden"
-          style={{ background: 'oklch(0.11 0.01 250 / 0.98)', paddingTop: '80px' }}
+          style={{ background: c.isDark ? 'oklch(0.11 0.01 250 / 0.98)' : 'oklch(0.95 0.008 235 / 0.98)', paddingTop: '80px' }}
         >
           <div className="flex flex-col gap-1 p-6">
             {NAV_LINKS.map((link) => {

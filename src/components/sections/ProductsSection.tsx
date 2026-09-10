@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useRef } from 'react'
 import { useThemeColors } from '@/hooks/useThemeColors'
 
 export interface ProductItem {
@@ -52,208 +52,296 @@ const PRODUCTS: ProductItem[] = [
   { id: 'insert-molded-9', category: 'insert-molded', image: '/images/products_gallery/insert_molded_component_9.jpg' },
 ]
 
-const CATEGORIES = [
-  { key: 'all', label: 'ALL (35)' },
-  { key: 'ferrous', label: 'FERROUS (8)' },
-  { key: 'non-ferrous', label: 'NON-FERROUS (9)' },
-  { key: 'molded', label: 'MOLDED (9)' },
-  { key: 'insert-molded', label: 'INSERT MOLDED (9)' },
+interface CategorySectionConfig {
+  key: ProductItem['category']
+  code: string
+  title: string
+  desc: string
+  items: ProductItem[]
+}
+
+const CATEGORY_SECTIONS: CategorySectionConfig[] = [
+  {
+    key: 'ferrous',
+    code: '01',
+    title: 'FERROUS COMPONENTS',
+    desc: 'High-speed progressive & compound stamped steel components',
+    items: PRODUCTS.filter((p) => p.category === 'ferrous'),
+  },
+  {
+    key: 'non-ferrous',
+    code: '02',
+    title: 'NON-FERROUS COMPONENTS',
+    desc: 'Aluminium, copper, and brass precision stamped & pressed parts',
+    items: PRODUCTS.filter((p) => p.category === 'non-ferrous'),
+  },
+  {
+    key: 'molded',
+    code: '03',
+    title: 'MOLDED COMPONENTS',
+    desc: 'Precision horizontal & vertical injection molded engineering parts',
+    items: PRODUCTS.filter((p) => p.category === 'molded'),
+  },
+  {
+    key: 'insert-molded',
+    code: '04',
+    title: 'INSERT MOLDED COMPONENTS',
+    desc: 'Integrated metal-into-plastic insert molded assemblies',
+    items: PRODUCTS.filter((p) => p.category === 'insert-molded'),
+  },
 ]
 
-export function ProductsSection() {
+function CategoryRow({ section }: { section: CategorySectionConfig }) {
   const c = useThemeColors()
-  const [activeTab, setActiveTab] = useState<string>('all')
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
-
-  const filteredProducts = activeTab === 'all'
-    ? PRODUCTS
-    : PRODUCTS.filter((p) => p.category === activeTab)
+  const scrollRef = useRef<HTMLDivElement>(null)
 
   const scroll = (direction: 'left' | 'right') => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = direction === 'left' ? -420 : 420
-      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+    if (scrollRef.current) {
+      const scrollAmount = direction === 'left' ? -360 : 360
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' })
     }
   }
 
   return (
-    <div style={{ paddingTop: '3.5rem', paddingBottom: '3.5rem', background: c.bg }}>
-      <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
-        {/* Header Bar */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-6 gap-4">
+    <div
+      className="p-5 sm:p-6 transition-all duration-300 backdrop-blur-md"
+      style={{
+        backgroundColor: c.bgCard,
+        border: `1px solid ${c.border}`,
+        boxShadow: c.cardShadow,
+      }}
+    >
+      {/* Category Header Strip */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-4 gap-3 border-b" style={{ borderColor: c.borderSubtle }}>
+        <div className="flex items-center gap-3">
+          <span
+            style={{
+              fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+              fontSize: '12px',
+              fontWeight: 800,
+              letterSpacing: '0.2em',
+              color: c.amber,
+              padding: '0.2rem 0.5rem',
+              border: `1px solid ${c.amberA40}`,
+              background: c.amberA8,
+            }}
+          >
+            {section.code}
+          </span>
           <div>
+            <div className="flex items-center gap-2.5">
+              <h3
+                style={{
+                  fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
+                  fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
+                  fontWeight: 800,
+                  letterSpacing: '0.04em',
+                  color: c.heading,
+                  lineHeight: 1.2,
+                }}
+              >
+                {section.title}
+              </h3>
+              <span
+                style={{
+                  fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                  fontSize: '11px',
+                  letterSpacing: '0.1em',
+                  color: c.body,
+                  border: `1px solid ${c.border}`,
+                  background: c.bgBadge,
+                  padding: '0.15rem 0.45rem',
+                  fontWeight: 700,
+                }}
+              >
+                {section.items.length} UNITS
+              </span>
+            </div>
+            <p
+              style={{
+                fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                fontSize: '12px',
+                color: c.body,
+                marginTop: '0.2rem',
+                letterSpacing: '0.05em',
+              }}
+            >
+              {section.desc}
+            </p>
+          </div>
+        </div>
+
+        {/* Category Scroll Navigation Arrows */}
+        <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
+          <button
+            type="button"
+            onClick={() => scroll('left')}
+            style={{
+              width: '2.25rem',
+              height: '2.25rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              border: `1px solid ${c.border}`,
+              background: c.bgElevated,
+              color: c.heading,
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+            }}
+            className="hover:border-[oklch(0.52_0.18_45)] hover:text-[oklch(0.52_0.18_45)] active:scale-95"
+            title={`Scroll ${section.title} Left`}
+            aria-label={`Scroll ${section.title} Left`}
+          >
+            ←
+          </button>
+          <button
+            type="button"
+            onClick={() => scroll('right')}
+            style={{
+              width: '2.25rem',
+              height: '2.25rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              border: `1px solid ${c.amberA40}`,
+              background: c.amberA8,
+              color: c.amber,
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+            }}
+            className="hover:bg-[oklch(0.52_0.18_45)] hover:text-white active:scale-95"
+            title={`Scroll ${section.title} Right`}
+            aria-label={`Scroll ${section.title} Right`}
+          >
+            →
+          </button>
+        </div>
+      </div>
+
+      {/* Category Component Carousel Track */}
+      <div
+        ref={scrollRef}
+        className="flex gap-3.5 overflow-x-auto pb-2 pt-1 snap-x snap-mandatory"
+        style={{
+          scrollSnapType: 'x mandatory',
+          WebkitOverflowScrolling: 'touch',
+          scrollbarWidth: 'thin',
+        }}
+      >
+        {section.items.map((product) => (
+          <div
+            key={product.id}
+            style={{
+              width: '210px',
+              minWidth: '180px',
+              maxWidth: '210px',
+              flexShrink: 0,
+              scrollSnapAlign: 'start',
+              backgroundColor: c.bgElevated,
+              border: `1px solid ${c.border}`,
+            }}
+            className="group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-[oklch(0.52_0.18_45)] hover:shadow-md"
+          >
+            {/* Crosshair Target Reticles on Hover */}
+            <span className="absolute top-1 left-1 font-mono text-[13px] opacity-0 group-hover:opacity-100 transition-opacity z-10" style={{ color: c.amber }}>
+              ┌
+            </span>
+            <span className="absolute top-1 right-1 font-mono text-[13px] opacity-0 group-hover:opacity-100 transition-opacity z-10" style={{ color: c.amber }}>
+              ┐
+            </span>
+            <span className="absolute bottom-1 left-1 font-mono text-[13px] opacity-0 group-hover:opacity-100 transition-opacity z-10" style={{ color: c.amber }}>
+              └
+            </span>
+            <span className="absolute bottom-1 right-1 font-mono text-[13px] opacity-0 group-hover:opacity-100 transition-opacity z-10" style={{ color: c.amber }}>
+              ┘
+            </span>
+
+            {/* Component Photo Container */}
+            <div className="aspect-square flex items-center justify-center p-3 overflow-hidden" style={{ backgroundColor: c.bgDeep }}>
+              <img
+                src={product.image}
+                alt={section.title}
+                className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+              {/* Laser scan line overlay effect on hover */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+                style={{ backgroundImage: `linear-gradient(to bottom, transparent, ${c.amberA15}, transparent)` }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export function ProductsSection() {
+  const c = useThemeColors()
+
+  return (
+    <div id="products" style={{ paddingTop: '4rem', paddingBottom: '4rem', background: c.bg }}>
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
+        {/* Main Section Header */}
+        <div className="mb-8">
+          <div
+            style={{
+              fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+              fontSize: '15.5px',
+              letterSpacing: '0.4em',
+              color: c.amber,
+              marginBottom: '0.35rem',
+            }}
+          >
+            SECTION 05 — COMPONENT GALLERY
+          </div>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-3">
+            <div>
+              <h2
+                style={{
+                  fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
+                  fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
+                  fontWeight: 800,
+                  letterSpacing: '-0.02em',
+                  color: c.heading,
+                }}
+              >
+                Component Gallery
+              </h2>
+              <p
+                style={{
+                  fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
+                  fontSize: '13.5px',
+                  color: c.body,
+                  marginTop: '0.35rem',
+                  letterSpacing: '0.05em',
+                }}
+              >
+                Comprehensive showcase of manufactured precision tooling, stamped parts, and molded assemblies.
+              </p>
+            </div>
             <div
               style={{
                 fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
-                fontSize: '15.5px',
-                letterSpacing: '0.4em',
+                fontSize: '12px',
                 color: c.amber,
-                marginBottom: '0.25rem',
+                padding: '0.35rem 0.75rem',
+                border: `1px solid ${c.amberA40}`,
+                background: c.amberA8,
+                whiteSpace: 'nowrap',
               }}
             >
-              SECTION 06 — PRODUCT GALLERY
+              TOTAL 35 COMPONENTS DISPLAYED
             </div>
-            <h2
-              style={{
-                fontFamily: '"Inter", system-ui, -apple-system, sans-serif',
-                fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)',
-                fontWeight: 700,
-                letterSpacing: '-0.02em',
-                color: c.heading,
-              }}
-            >
-              Component Gallery
-            </h2>
-          </div>
-
-          {/* Navigation Arrows */}
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => scroll('left')}
-              style={{
-                width: '2.75rem',
-                height: '2.75rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                border: `1px solid ${c.borderStrong}`,
-                background: c.bgElevated,
-                color: c.heading,
-                cursor: 'pointer',
-                backdropFilter: 'blur(12px)',
-                transition: 'all 0.2s ease',
-              }}
-              className="hover:border-[oklch(0.72_0.19_45)] hover:text-[oklch(0.72_0.19_45)] active:scale-95"
-              title="Scroll Left"
-              aria-label="Previous components"
-            >
-              ←
-            </button>
-            <button
-              type="button"
-              onClick={() => scroll('right')}
-              style={{
-                width: '2.75rem',
-                height: '2.75rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                border: `1px solid ${c.amberA50}`,
-                background: c.amberA15,
-                color: c.amber,
-                cursor: 'pointer',
-                backdropFilter: 'blur(12px)',
-                transition: 'all 0.2s ease',
-              }}
-              className="hover:bg-[oklch(0.72_0.19_45)] hover:text-[oklch(0.13_0.01_250)] active:scale-95"
-              title="Scroll Right"
-              aria-label="Next components"
-            >
-              →
-            </button>
           </div>
         </div>
 
-        {/* Category Filter Pills */}
-        <div
-          className="flex flex-wrap items-center gap-1.5 p-1.5 border mb-6 w-fit"
-          style={{ backgroundColor: c.bgCarousel, borderColor: c.border }}
-        >
-          {CATEGORIES.map((cat) => {
-            const isActive = activeTab === cat.key
-            return (
-              <button
-                key={cat.key}
-                type="button"
-                onClick={() => {
-                  setActiveTab(cat.key)
-                  if (scrollContainerRef.current) {
-                    scrollContainerRef.current.scrollTo({ left: 0, behavior: 'smooth' })
-                  }
-                }}
-                style={{
-                  fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
-                  fontSize: '15.5px',
-                  letterSpacing: '0.15em',
-                  padding: '0.35rem 0.75rem',
-                  border: isActive ? `1px solid ${c.amber}` : '1px solid transparent',
-                  background: isActive ? c.amberA15 : 'transparent',
-                  color: isActive ? c.amber : c.body,
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                }}
-                className="hover:text-[oklch(0.93_0.005_250)]"
-              >
-                {cat.label}
-              </button>
-            )
-          })}
-        </div>
-
-        {/* HORIZONTAL SCROLLING CAROUSEL — 1 ROW */}
-        <div
-          ref={scrollContainerRef}
-          className="flex gap-3.5 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-[oklch(0.72_0.19_45_/_40%)] scrollbar-track-[oklch(0.17_0.012_250)]"
-          style={{
-            scrollSnapType: 'x mandatory',
-            WebkitOverflowScrolling: 'touch',
-            scrollbarWidth: 'thin',
-          }}
-        >
-          {filteredProducts.map((product) => (
-            <div
-              key={product.id}
-              style={{
-                width: '240px',
-                minWidth: '200px',
-                maxWidth: '240px',
-                flexShrink: 0,
-                scrollSnapAlign: 'start',
-                backgroundColor: c.bgCarousel,
-                border: `1px solid ${c.border}`,
-              }}
-              className="group relative overflow-hidden border backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[oklch(0.72_0.19_45_/_70%)] hover:shadow-lg hover:shadow-[oklch(0.72_0.19_45_/_10%)]"
-            >
-              {/* Target Reticle Crosshair Hover Animation */}
-              <span className="absolute top-1 left-1 font-mono text-[14px] opacity-0 group-hover:opacity-100 transition-opacity z-10" style={{ color: c.amber }}>
-                ┌
-              </span>
-              <span className="absolute top-1 right-1 font-mono text-[14px] opacity-0 group-hover:opacity-100 transition-opacity z-10" style={{ color: c.amber }}>
-                ┐
-              </span>
-              <span className="absolute bottom-1 left-1 font-mono text-[14px] opacity-0 group-hover:opacity-100 transition-opacity z-10" style={{ color: c.amber }}>
-                └
-              </span>
-              <span className="absolute bottom-1 right-1 font-mono text-[14px] opacity-0 group-hover:opacity-100 transition-opacity z-10" style={{ color: c.amber }}>
-                ┘
-              </span>
-
-              {/* Component Photo */}
-              <div className="aspect-square flex items-center justify-center p-3 overflow-hidden" style={{ backgroundColor: c.bgDeep }}>
-                <img
-                  src={product.image}
-                  alt=""
-                  className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-110"
-                  loading="lazy"
-                />
-                {/* Laser scan line overlay effect on hover */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
-                  style={{ backgroundImage: `linear-gradient(to bottom, transparent, ${c.amberA15}, transparent)` }}
-                />
-              </div>
-            </div>
+        {/* Stacked Category Rows (Ferrous -> Non-Ferrous -> Molded -> Insert Molded) */}
+        <div className="flex flex-col gap-6">
+          {CATEGORY_SECTIONS.map((section) => (
+            <CategoryRow key={section.key} section={section} />
           ))}
-        </div>
-
-        {/* Carousel Footer Hint */}
-        <div
-          className="flex items-center justify-between mt-3 font-mono text-[13px] tracking-wider"
-          style={{ color: c.body }}
-        >
-          <span>SWIPE OR USE ARROWS TO BROWSE</span>
-          <span style={{ color: c.amber }}>SHOWING {filteredProducts.length} COMPONENTS</span>
         </div>
       </div>
     </div>

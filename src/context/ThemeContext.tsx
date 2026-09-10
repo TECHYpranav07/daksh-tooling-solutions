@@ -1,7 +1,9 @@
-import { createContext, useContext, useEffect, type ReactNode } from 'react'
+import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react'
+
+type Theme = 'dark' | 'light'
 
 interface ThemeContextType {
-  theme: 'dark'
+  theme: Theme
   toggleTheme: () => void
 }
 
@@ -10,15 +12,37 @@ const ThemeContext = createContext<ThemeContextType>({
   toggleTheme: () => {},
 })
 
+const STORAGE_KEY = 'dts-theme'
+
+function getInitialTheme(): Theme {
+  if (typeof window === 'undefined') return 'dark'
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY)
+    if (stored === 'light' || stored === 'dark') return stored
+  } catch { /* ignore */ }
+  return 'dark'
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
+  const [theme, setTheme] = useState<Theme>(getInitialTheme)
+
+  // Sync the class on <html> whenever theme changes
   useEffect(() => {
     const root = document.documentElement
-    root.classList.add('dark')
-    root.classList.remove('light')
+    root.classList.remove('dark', 'light')
+    root.classList.add(theme)
+    root.style.colorScheme = theme
+    try {
+      localStorage.setItem(STORAGE_KEY, theme)
+    } catch { /* ignore */ }
+  }, [theme])
+
+  const toggleTheme = useCallback(() => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
   }, [])
 
   return (
-    <ThemeContext.Provider value={{ theme: 'dark', toggleTheme: () => {} }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   )

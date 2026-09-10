@@ -73,7 +73,7 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
               fontWeight: 600,
             }}
           >
-            SECTION 02 — COMMAND CENTER
+            SECTION 01 — COMMAND CENTER
           </div>
           <h2
             style={{
@@ -106,13 +106,12 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
         {/* ═══════════════════════════════════════════════════════ */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 mb-8">
           {/* KPI 1 */}
-          <div className="group relative overflow-hidden border border-[oklch(0.93_0.005_250_/_10%)] bg-[oklch(0.14_0.012_250_/_70%)] p-4.5 backdrop-blur-md transition-all duration-300 hover:border-[oklch(0.75_0.17_150_/_60%)] hover:-translate-y-0.5">
+          <div className="group relative overflow-hidden p-4.5 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5" style={{ border: `1px solid ${c.border}`, background: c.bgCard, boxShadow: c.cardShadow }}>
             <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[oklch(0.75_0.17_150_/_60%)] opacity-0 group-hover:opacity-100 transition-opacity" />
             <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[oklch(0.75_0.17_150_/_60%)] opacity-0 group-hover:opacity-100 transition-opacity" />
             <div style={{
               fontFamily: 'system-ui, sans-serif', fontSize: 'clamp(1.75rem, 3.5vw, 2.35rem)', fontWeight: 800, lineHeight: 1,
-              background: c.gradientGreenCyan,
-              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+              color: c.green,
             }}>
               <AnimatedCounter target={90} suffix="%" />
             </div>
@@ -125,13 +124,12 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
           </div>
 
           {/* KPI 2 */}
-          <div className="group relative overflow-hidden border border-[oklch(0.93_0.005_250_/_10%)] bg-[oklch(0.14_0.012_250_/_70%)] p-4.5 backdrop-blur-md transition-all duration-300 hover:border-[oklch(0.72_0.19_45_/_60%)] hover:-translate-y-0.5">
+          <div className="group relative overflow-hidden p-4.5 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5" style={{ border: `1px solid ${c.border}`, background: c.bgCard, boxShadow: c.cardShadow }}>
             <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[oklch(0.72_0.19_45_/_60%)] opacity-0 group-hover:opacity-100 transition-opacity" />
             <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[oklch(0.72_0.19_45_/_60%)] opacity-0 group-hover:opacity-100 transition-opacity" />
             <div style={{
               fontFamily: 'system-ui, sans-serif', fontSize: 'clamp(1.75rem, 3.5vw, 2.35rem)', fontWeight: 800, lineHeight: 1,
-              background: c.gradientAmberCyan,
-              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+              color: c.amber,
             }}>
               <AnimatedCounter target={2} suffix=" Lakhs+" />
             </div>
@@ -144,13 +142,12 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
           </div>
 
           {/* KPI 3 */}
-          <div className="group relative overflow-hidden border border-[oklch(0.93_0.005_250_/_10%)] bg-[oklch(0.14_0.012_250_/_70%)] p-4.5 backdrop-blur-md transition-all duration-300 hover:border-[oklch(0.78_0.12_215_/_60%)] hover:-translate-y-0.5">
+          <div className="group relative overflow-hidden p-4.5 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5" style={{ border: `1px solid ${c.border}`, background: c.bgCard, boxShadow: c.cardShadow }}>
             <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[oklch(0.78_0.12_215_/_60%)] opacity-0 group-hover:opacity-100 transition-opacity" />
             <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[oklch(0.78_0.12_215_/_60%)] opacity-0 group-hover:opacity-100 transition-opacity" />
             <div style={{
               fontFamily: 'system-ui, sans-serif', fontSize: 'clamp(1.75rem, 3.5vw, 2.35rem)', fontWeight: 800, lineHeight: 1,
-              background: c.gradientCyanAmber,
-              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+              color: c.cyan,
             }}>
               <AnimatedCounter target={250} suffix="+" />
             </div>
@@ -163,13 +160,12 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
           </div>
 
           {/* KPI 4 */}
-          <div className="group relative overflow-hidden border border-[oklch(0.93_0.005_250_/_10%)] bg-[oklch(0.14_0.012_250_/_70%)] p-4.5 backdrop-blur-md transition-all duration-300 hover:border-[oklch(0.72_0.19_45_/_60%)] hover:-translate-y-0.5">
+          <div className="group relative overflow-hidden p-4.5 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5" style={{ border: `1px solid ${c.border}`, background: c.bgCard, boxShadow: c.cardShadow }}>
             <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[oklch(0.72_0.19_45_/_60%)] opacity-0 group-hover:opacity-100 transition-opacity" />
             <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[oklch(0.72_0.19_45_/_60%)] opacity-0 group-hover:opacity-100 transition-opacity" />
             <div style={{
               fontFamily: 'system-ui, sans-serif', fontSize: 'clamp(1.75rem, 3.5vw, 2.35rem)', fontWeight: 800, lineHeight: 1,
-              background: c.gradientAmberGreen,
-              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+              color: c.amber,
             }}>
               <AnimatedCounter target={600} suffix="+" />
             </div>
@@ -185,7 +181,7 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
         {/* ═══════════════════════════════════════════════════════ */}
         {/* COMMAND HUB INTERFACE                                  */}
         {/* ═══════════════════════════════════════════════════════ */}
-        <div className="relative border border-[oklch(0.93_0.005_250_/_12%)] bg-[oklch(0.14_0.012_250_/_60%)] backdrop-blur-md">
+        <div className="relative backdrop-blur-md" style={{ border: `1px solid ${c.border}`, background: c.bgCard, boxShadow: c.cardShadow }}>
           {/* Corner Brackets */}
           <span className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2 border-[oklch(0.72_0.19_45)]" />
           <span className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2 border-[oklch(0.72_0.19_45)]" />
@@ -264,7 +260,7 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
 
                     {/* Mission & Vision */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
-                      <div className="group p-4 border border-[oklch(0.93_0.005_250_/_8%)] bg-[oklch(0.12_0.01_250_/_60%)] transition-all duration-200 hover:border-[oklch(0.72_0.19_45_/_40%)] hover:-translate-y-0.5">
+                      <div className="group p-4 transition-all duration-200 hover:-translate-y-0.5" style={{ border: `1px solid ${c.border}`, background: c.bgElevated, boxShadow: c.cardShadow }}>
                         <div style={{ fontFamily: 'monospace', fontSize: '13.5px', color: c.amber, fontWeight: 700, marginBottom: '0.4rem', letterSpacing: '0.1em' }}>
                           ◆ MISSION
                         </div>
@@ -272,7 +268,7 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
                           To advance precision manufacturing by combining engineering excellence, continuous improvement, and collaborative partnerships to deliver consistently high-quality products and services.
                         </p>
                       </div>
-                      <div className="group p-4 border border-[oklch(0.93_0.005_250_/_8%)] bg-[oklch(0.12_0.01_250_/_60%)] transition-all duration-200 hover:border-[oklch(0.78_0.12_215_/_40%)] hover:-translate-y-0.5">
+                      <div className="group p-4 transition-all duration-200 hover:-translate-y-0.5" style={{ border: `1px solid ${c.border}`, background: c.bgElevated, boxShadow: c.cardShadow }}>
                         <div style={{ fontFamily: 'monospace', fontSize: '13.5px', color: c.cyan, fontWeight: 700, marginBottom: '0.4rem', letterSpacing: '0.1em' }}>
                           ◆ VISION
                         </div>
@@ -290,9 +286,9 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
                         { icon: '◇', label: 'COST & VALUE OPTIMIZATION', desc: 'Optimized processes and equipment ensure competitive pricing without compromising quality.', color: c.green },
                         { icon: '△', label: 'CUSTOMER-CENTRIC SERVICE', desc: 'Collaborative project development, responsive support, and on-time delivery commitment.', color: c.amber },
                       ].map((edge) => (
-                        <div key={edge.label} className="group p-4 border border-[oklch(0.93_0.005_250_/_8%)] bg-[oklch(0.12_0.01_250_/_60%)] transition-all duration-200 hover:-translate-y-0.5" style={{ borderColor: `color-mix(in oklch, ${edge.color} 20%, transparent)` }}
-                          onMouseEnter={(e) => { e.currentTarget.style.borderColor = `color-mix(in oklch, ${edge.color} 50%, transparent)` }}
-                          onMouseLeave={(e) => { e.currentTarget.style.borderColor = `color-mix(in oklch, ${edge.color} 20%, transparent)` }}
+                        <div key={edge.label} className="group p-4 transition-all duration-200 hover:-translate-y-0.5" style={{ border: `1px solid ${c.border}`, background: c.bgElevated, boxShadow: c.cardShadow }}
+                          onMouseEnter={(e) => { e.currentTarget.style.borderColor = edge.color }}
+                          onMouseLeave={(e) => { e.currentTarget.style.borderColor = c.border }}
                         >
                           <div className="flex items-center gap-2 mb-2">
                             <span style={{ fontSize: '15px', color: edge.color, lineHeight: 1 }}>{edge.icon}</span>
@@ -310,7 +306,7 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
 
                   {/* CEO Executive Card */}
                   <div className="lg:w-[310px] shrink-0">
-                    <div className="group relative border border-[oklch(0.72_0.19_45_/_30%)] bg-[oklch(0.12_0.01_250)] p-5 transition-all duration-300 hover:border-[oklch(0.72_0.19_45_/_60%)]">
+                    <div className="group relative p-5 transition-all duration-300" style={{ border: `1px solid ${c.amberA40}`, background: c.bgElevated, boxShadow: c.cardShadow }}>
                       <span className="absolute top-0 left-0 w-2.5 h-2.5 border-t border-l border-[oklch(0.72_0.19_45)]" />
                       <span className="absolute top-0 right-0 w-2.5 h-2.5 border-t border-r border-[oklch(0.72_0.19_45)]" />
                       <span className="absolute bottom-0 left-0 w-2.5 h-2.5 border-b border-l border-[oklch(0.72_0.19_45)]" />
@@ -427,10 +423,10 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
                   ].map((cap) => (
                     <div
                       key={cap.num}
-                      className="group relative overflow-hidden p-5 border bg-[oklch(0.12_0.01_250_/_70%)] transition-all duration-300 hover:-translate-y-1"
-                      style={{ borderColor: `color-mix(in oklch, ${cap.color} 30%, transparent)` }}
+                      className="group relative overflow-hidden p-5 transition-all duration-300 hover:-translate-y-1"
+                      style={{ border: `1px solid ${c.border}`, background: c.bgElevated, boxShadow: c.cardShadow }}
                       onMouseEnter={(e) => { e.currentTarget.style.borderColor = cap.color }}
-                      onMouseLeave={(e) => { e.currentTarget.style.borderColor = `color-mix(in oklch, ${cap.color} 30%, transparent)` }}
+                      onMouseLeave={(e) => { e.currentTarget.style.borderColor = c.border }}
                     >
                       <span className="absolute top-0 left-0 w-2 h-2 border-t border-l opacity-0 group-hover:opacity-100 transition-opacity" style={{ borderColor: cap.color }} />
                       <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r opacity-0 group-hover:opacity-100 transition-opacity" style={{ borderColor: cap.color }} />
@@ -449,9 +445,9 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
                         {cap.tags.map((tag) => (
                           <span key={tag} style={{
                             fontFamily: 'monospace', fontSize: '10.5px', letterSpacing: '0.12em',
-                            color: `color-mix(in oklch, ${cap.color} 80%, white)`,
-                            border: `1px solid color-mix(in oklch, ${cap.color} 25%, transparent)`,
-                            background: `color-mix(in oklch, ${cap.color} 8%, transparent)`,
+                            color: cap.color,
+                            border: `1px solid ${c.border}`,
+                            background: c.bgCard,
                             padding: '0.25rem 0.55rem',
                             fontWeight: 600,
                           }}>
@@ -468,7 +464,7 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
             {/* ─── TAB 3: QUALITY ─── */}
             {activeTab === 'quality' && (
               <div className="space-y-7 animate-fadeIn">
-                <div className="flex flex-col lg:flex-row gap-4 items-start justify-between border-b border-[oklch(0.93_0.005_250_/_10%)] pb-3.5">
+                <div className="flex flex-col lg:flex-row gap-4 items-start justify-between pb-3.5" style={{ borderBottom: `1px solid ${c.border}` }}>
                   <div>
                     <div style={{ fontFamily: 'monospace', fontSize: '12px', letterSpacing: '0.3em', color: c.green, marginBottom: '0.35rem', fontWeight: 600 }}>
                       ZERO-DEFECT MINDSET · ISO 9001:2015 CERTIFIED
@@ -477,7 +473,7 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
                       Quality Assurance & Metrology Standards
                     </h3>
                   </div>
-                  <div className="flex items-center gap-3 bg-[oklch(0.75_0.17_150_/_10%)] border border-[oklch(0.75_0.17_150_/_40%)] px-4.5 py-3 shrink-0">
+                  <div className="flex items-center gap-3 px-4.5 py-3 shrink-0" style={{ border: `1px solid ${c.greenA40}`, background: c.isDark ? 'oklch(0.75 0.17 150 / 0.1)' : 'oklch(0.44 0.15 155 / 0.08)' }}>
                     <span style={{ fontSize: '1.35rem', color: c.green }}>✓</span>
                     <div>
                       <div style={{ fontFamily: 'monospace', fontSize: '12.5px', color: c.green, fontWeight: 700, letterSpacing: '0.15em' }}>
@@ -497,7 +493,7 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
                     { value: 100, suffix: '%', label: 'FLASH-FREE', sub: 'Zero flash tooling design', color: c.cyan },
                     { value: 48200, suffix: '', label: 'CMM POINTS', sub: 'PPAP Level 3 verification', color: c.green },
                   ].map((metric) => (
-                    <div key={metric.label} className="group relative p-4.5 bg-[oklch(0.12_0.01_250)] border border-[oklch(0.93_0.005_250_/_10%)] transition-all duration-200 hover:border-[oklch(0.93_0.005_250_/_25%)] hover:-translate-y-0.5">
+                    <div key={metric.label} className="group relative p-4.5 transition-all duration-200 hover:-translate-y-0.5" style={{ border: `1px solid ${c.border}`, background: c.bgElevated, boxShadow: c.cardShadow }}>
                       <span className="absolute top-0 left-0 w-2 h-2 border-t border-l opacity-0 group-hover:opacity-100 transition-opacity" style={{ borderColor: metric.color }} />
                       <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r opacity-0 group-hover:opacity-100 transition-opacity" style={{ borderColor: metric.color }} />
                       <div style={{
@@ -522,7 +518,10 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
                     { title: 'IN-PROCESS QC', desc: 'CNC program verification, electrode inspection, EDM cavity checks, surface roughness (Ra) profiling at each stage.', color: c.cyan },
                     { title: 'FINAL INSPECTION', desc: 'Full CMM scan (48,200+ points), Hexagon 3D laser comparison to CAD, PPAP Level 3 report generation.', color: c.green },
                   ].map((step) => (
-                    <div key={step.title} className="group p-4 border bg-[oklch(0.12_0.01_250_/_60%)] transition-all duration-200 hover:-translate-y-0.5" style={{ borderColor: `color-mix(in oklch, ${step.color} 25%, transparent)` }}>
+                    <div key={step.title} className="group p-4 transition-all duration-200 hover:-translate-y-0.5" style={{ border: `1px solid ${c.border}`, background: c.bgElevated, boxShadow: c.cardShadow }}
+                      onMouseEnter={(e) => { e.currentTarget.style.borderColor = step.color }}
+                      onMouseLeave={(e) => { e.currentTarget.style.borderColor = c.border }}
+                    >
                       <div style={{ fontFamily: 'monospace', fontSize: '12.5px', color: step.color, fontWeight: 700, marginBottom: '0.4rem', letterSpacing: '0.12em' }}>
                         {step.title}
                       </div>
@@ -544,10 +543,10 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
           <div style={{ fontFamily: 'monospace', fontSize: '11px', letterSpacing: '0.3em', color: c.body, marginBottom: '0.85rem', textAlign: 'center', fontWeight: 600 }}>
             TRUSTED BY LEADING OEMs & TIER-1 SUPPLIERS
           </div>
-          <div className="relative overflow-hidden border border-[oklch(0.93_0.005_250_/_8%)] bg-[oklch(0.13_0.012_250_/_50%)] py-3.5">
+          <div className="relative overflow-hidden py-3.5" style={{ border: `1px solid ${c.border}`, background: c.bgCard, boxShadow: c.cardShadow }}>
             {/* Fade edges */}
-            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[oklch(0.11_0.01_250)] to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[oklch(0.11_0.01_250)] to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: `linear-gradient(to right, ${c.bgCard}, transparent)` }} />
+            <div className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: `linear-gradient(to left, ${c.bgCard}, transparent)` }} />
 
             {/* Scrolling track */}
             <div className="flex animate-marquee whitespace-nowrap">

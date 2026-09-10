@@ -127,7 +127,7 @@ export function ToolingExcellenceSection() {
             <div className="flex items-center gap-2 mb-1">
               <Sparkles size={13} style={{ color: c.amber }} />
               <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.35em', color: c.amber, fontWeight: 700 }}>
-                SECTION 03 — CORE STRENGTH
+                SECTION 02 — CORE STRENGTH
               </span>
             </div>
             <h2
@@ -168,10 +168,11 @@ export function ToolingExcellenceSection() {
                   onClick={() => setActiveTab(pillar.id)}
                   className="w-full text-left p-3 border transition-all duration-200 flex items-center justify-between group backdrop-blur-md"
                   style={{
-                    borderColor: isSelected ? color : `color-mix(in oklch, ${color} 20%, transparent)`,
+                    borderColor: isSelected ? color : c.border,
                     background: isSelected 
-                      ? `color-mix(in oklch, ${color} 12%, oklch(0.13 0.01 250 / 80%))` 
-                      : 'oklch(0.12 0.01 250 / 40%)',
+                      ? (c.isDark ? 'oklch(0.18 0.012 250 / 90%)' : 'oklch(0.995 0.002 250)') 
+                      : c.bgCard,
+                    boxShadow: isSelected ? c.cardShadow : 'none',
                     cursor: 'pointer',
                   }}
                 >
@@ -215,8 +216,8 @@ export function ToolingExcellenceSection() {
               className="h-full p-6 border relative flex flex-col justify-between backdrop-blur-lg"
               style={{
                 borderColor: activeColor,
-                background: `radial-gradient(circle at top right, color-mix(in oklch, ${activeColor} 10%, transparent), oklch(0.12 0.01 250 / 95%))`,
-                boxShadow: `0 0 25px color-mix(in oklch, ${activeColor} 12%, transparent)`,
+                background: c.isDark ? 'oklch(0.14 0.012 250 / 95%)' : c.bgElevated,
+                boxShadow: c.isDark ? `0 0 25px color-mix(in oklch, ${activeColor} 12%, transparent)` : c.cardShadow,
               }}
             >
               {/* Corner Reticles */}
@@ -227,7 +228,7 @@ export function ToolingExcellenceSection() {
 
               <div>
                 {/* Console Bar */}
-                <div className="flex items-center justify-between pb-3 mb-4 border-b border-[oklch(0.93_0.005_250_/_10%)]">
+                <div className="flex items-center justify-between pb-3 mb-4" style={{ borderBottom: `1px solid ${c.border}` }}>
                   <div className="flex items-center gap-2">
                     <Activity size={13} style={{ color: activeColor }} />
                     <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10px', letterSpacing: '0.25em', color: activeColor, fontWeight: 700 }}>
@@ -255,7 +256,7 @@ export function ToolingExcellenceSection() {
                 {/* Highlights List */}
                 <div className="space-y-2 mb-4">
                   {activePillar.highlights.map((h, i) => (
-                    <div key={i} className="flex items-center gap-2 p-2 border border-[oklch(0.93_0.005_250_/_8%)] bg-[oklch(0.14_0.012_250_/_50%)]">
+                    <div key={i} className="flex items-center gap-2 p-2" style={{ border: `1px solid ${c.border}`, background: c.bgCard }}>
                       <CheckCircle2 size={14} style={{ color: activeColor, flexShrink: 0 }} />
                       <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', color: c.heading, fontWeight: 600 }}>
                         {h}
@@ -266,7 +267,7 @@ export function ToolingExcellenceSection() {
               </div>
 
               {/* Metric Footer Pill */}
-              <div className="pt-3 border-t border-[oklch(0.93_0.005_250_/_10%)] flex items-center justify-between">
+              <div className="pt-3 flex items-center justify-between" style={{ borderTop: `1px solid ${c.border}` }}>
                 <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10px', letterSpacing: '0.15em', color: c.body }}>
                   BENCHMARK SPECIFICATION:
                 </span>
@@ -286,11 +287,12 @@ export function ToolingExcellenceSection() {
         </div>
 
         {/* Strategic Focus Strip — Ultra-Compact Line */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 pt-2 border-t border-[oklch(0.93_0.005_250_/_10%)]">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 pt-2" style={{ borderTop: `1px solid ${c.border}` }}>
           {STRATEGIC_FOCUS.map((item) => (
             <div 
               key={item.label}
-              className="flex items-center gap-3 p-2.5 border border-[oklch(0.93_0.005_250_/_8%)] bg-[oklch(0.12_0.01_250_/_40%)]"
+              className="flex items-center gap-3 p-2.5"
+              style={{ border: `1px solid ${c.border}`, background: c.bgCard, boxShadow: c.cardShadow }}
             >
               <span style={{ fontFamily: '"Inter", system-ui, sans-serif', fontSize: '1.1rem', fontWeight: 800, color: c.amber, lineHeight: 1 }}>
                 {item.metric}

@@ -1,10 +1,13 @@
 import { Experience } from '@/components/experience/experience'
+import { useThemeColors } from '@/hooks/useThemeColors'
 
 interface ExperienceOverlayProps {
   onClose: () => void
 }
 
 export function ExperienceOverlay({ onClose }: ExperienceOverlayProps) {
+  const c = useThemeColors()
+
   return (
     <div style={{ position: 'fixed', inset: 0, zIndex: 100, background: '#0b0d12' }}>
       {/* Exit Button */}
@@ -19,9 +22,9 @@ export function ExperienceOverlay({ onClose }: ExperienceOverlayProps) {
           display: 'flex',
           alignItems: 'center',
           gap: '0.5rem',
-          background: 'oklch(0.72 0.19 45 / 0.15)',
-          border: '1px solid oklch(0.72 0.19 45 / 0.5)',
-          color: 'oklch(0.72 0.19 45)',
+          background: c.amberA15,
+          border: `1px solid ${c.amberA50}`,
+          color: c.amber,
           padding: '0.6rem 1.25rem',
           cursor: 'pointer',
           fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace',
@@ -32,12 +35,12 @@ export function ExperienceOverlay({ onClose }: ExperienceOverlayProps) {
           backdropFilter: 'blur(12px)',
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.background = 'oklch(0.72 0.19 45)'
-          e.currentTarget.style.color = 'oklch(0.13 0.01 250)'
+          e.currentTarget.style.background = c.amber
+          e.currentTarget.style.color = c.btnHoverText
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.background = 'oklch(0.72 0.19 45 / 0.15)'
-          e.currentTarget.style.color = 'oklch(0.72 0.19 45)'
+          e.currentTarget.style.background = c.amberA15
+          e.currentTarget.style.color = c.amber
         }}
       >
         EXIT EXPERIENCE ✕

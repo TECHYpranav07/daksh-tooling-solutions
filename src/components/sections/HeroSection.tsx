@@ -37,11 +37,13 @@ export function HeroSection() {
       <div
         className="pointer-events-none absolute inset-0 z-0"
         style={{
-          background: `
-            radial-gradient(circle at 50% 38%, oklch(0.72 0.19 45 / 0.14) 0%, transparent 55%),
-            radial-gradient(circle at 20% 80%, oklch(0.78 0.12 215 / 0.08) 0%, transparent 45%),
-            radial-gradient(circle at 80% 20%, oklch(0.75 0.17 150 / 0.08) 0%, transparent 45%)
-          `,
+          background: c.isDark
+            ? `radial-gradient(circle at 50% 38%, oklch(0.72 0.19 45 / 0.14) 0%, transparent 55%),
+               radial-gradient(circle at 20% 80%, oklch(0.78 0.12 215 / 0.08) 0%, transparent 45%),
+               radial-gradient(circle at 80% 20%, oklch(0.75 0.17 150 / 0.08) 0%, transparent 45%)`
+            : `radial-gradient(circle at 50% 38%, oklch(0.52 0.18 45 / 0.08) 0%, transparent 55%),
+               radial-gradient(circle at 20% 80%, oklch(0.40 0.14 235 / 0.06) 0%, transparent 45%),
+               radial-gradient(circle at 80% 20%, oklch(0.44 0.15 155 / 0.06) 0%, transparent 45%)`,
         }}
         aria-hidden="true"
       />
@@ -50,10 +52,11 @@ export function HeroSection() {
       <div
         className="scanlines-bg pointer-events-none absolute inset-0 z-0 opacity-40"
         style={{
-          backgroundImage: `
-            linear-gradient(to right, oklch(0.93 0.005 250 / 0.03) 1px, transparent 1px),
-            linear-gradient(to bottom, oklch(0.93 0.005 250 / 0.03) 1px, transparent 1px)
-          `,
+          backgroundImage: c.isDark
+            ? `linear-gradient(to right, oklch(0.93 0.005 250 / 0.03) 1px, transparent 1px),
+               linear-gradient(to bottom, oklch(0.93 0.005 250 / 0.03) 1px, transparent 1px)`
+            : `linear-gradient(to right, oklch(0.15 0.015 250 / 0.04) 1px, transparent 1px),
+               linear-gradient(to bottom, oklch(0.15 0.015 250 / 0.04) 1px, transparent 1px)`,
           backgroundSize: '40px 40px',
         }}
         aria-hidden="true"
@@ -71,42 +74,6 @@ export function HeroSection() {
       </div>
       <div style={{ position: 'absolute', bottom: '2rem', right: '2rem', zIndex: 1, opacity: mounted ? 1 : 0, transition: 'opacity 0.6s ease 0.1s' }} className="hidden sm:block">
         <div style={{ width: '2.5rem', height: '2.5rem', borderBottom: `2px solid ${c.amberA60}`, borderRight: `2px solid ${c.amberA60}` }} />
-      </div>
-
-      {/* Top Floating Status Ticker Bar */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '1.25rem 2rem',
-          borderBottom: `1px solid ${c.borderDim}`,
-          zIndex: 10,
-          opacity: mounted ? 1 : 0,
-          transition: 'opacity 0.6s ease 0.2s',
-          flexWrap: 'wrap',
-          gap: '1rem',
-          background: 'oklch(0.11 0.01 250 / 0.6)',
-          backdropFilter: 'blur(12px)',
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <span className="hud-blink" style={{ width: '8px', height: '8px', borderRadius: '50%', background: c.green, display: 'block', boxShadow: `0 0 8px ${c.green}` }} />
-          <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', letterSpacing: '0.35em', color: c.heading, fontWeight: 600 }}>
-            ISO 9001:2015 CERTIFIED TOOL ROOM
-          </span>
-        </div>
-        <div className="hidden md:flex items-center gap-6" style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', letterSpacing: '0.2em', color: c.body }}>
-          <span>EST. APRIL 2019</span>
-          <span>•</span>
-          <span>PIMPRI CHINCHWAD, PUNE</span>
-          <span>•</span>
-          <span style={{ color: c.amber }}>250+ MOLDS DELIVERED</span>
-        </div>
       </div>
 
       {/* Main Hero Center Content */}
@@ -139,14 +106,14 @@ export function HeroSection() {
           }}
         >
           <Cpu size={14} style={{ color: c.amber }} />
-          <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', letterSpacing: '0.35em', color: c.amber, fontWeight: 700 }}>
-            OSSNAM ENGINEERING GROUP
+          <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '15px', letterSpacing: '0.3em', color: c.amber, fontWeight: 700 }}>
+            OSSNAM ENGINEERING GROUP — ISO 9001:2015
           </span>
         </div>
 
         {/* Master Headline Branding */}
         <div className="landing-in landing-in-delay-2" style={{ width: '100%' }}>
-          <div style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', letterSpacing: '0.7em', color: c.body, marginBottom: '0.5rem', textTransform: 'uppercase' }}>
+          <div style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '15px', letterSpacing: '0.5em', color: c.body, marginBottom: '0.75rem', textTransform: 'uppercase' }}>
             HIGH-PRECISION TOOLING & MOLDING HUB
           </div>
 
@@ -162,9 +129,7 @@ export function HeroSection() {
           >
             <span
               style={{
-                background: 'linear-gradient(180deg, #FFFFFF 0%, oklch(0.85 0.01 250) 60%, oklch(0.65 0.02 250) 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
+                color: c.heading,
                 display: 'block',
               }}
             >
@@ -173,13 +138,11 @@ export function HeroSection() {
             <span
               style={{
                 fontSize: 'clamp(1.5rem, 4vw, 3.25rem)',
-                fontWeight: 700,
+                fontWeight: 800,
                 letterSpacing: '0.25em',
-                background: `linear-gradient(135deg, ${c.amber}, ${c.cyan})`,
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
+                color: c.amber,
                 display: 'block',
-                marginTop: '0.35rem',
+                marginTop: '0.5rem',
               }}
             >
               SOLUTIONS
@@ -300,14 +263,14 @@ export function HeroSection() {
         </div>
 
         {/* Live Metrics Grid inside Hero */}
-        <div className="landing-in landing-in-delay-5 grid grid-cols-2 md:grid-cols-4 gap-3 w-full mt-6 pt-6 border-t border-[oklch(0.93_0.005_250_/_10%)]">
+        <div className="landing-in landing-in-delay-5 grid grid-cols-2 md:grid-cols-4 gap-3 w-full mt-6 pt-6" style={{ borderTop: `1px solid ${c.borderSubtle}` }}>
           {[
             { metric: '300+', label: 'INJECTION MOLDS', sub: 'Precision injection tooling' },
             { metric: '200+', label: 'SHEET METAL DIES', sub: 'Stamping & forming dies' },
             { metric: '100+', label: 'HOT CHAMBER DIES', sub: 'Die-casting tooling' },
             { metric: '100+', label: 'HPDC DIES', sub: 'High-pressure die casting' },
           ].map((item) => (
-            <div key={item.label} className="p-3 border border-[oklch(0.93_0.005_250_/_8%)] bg-[oklch(0.14_0.012_250_/_50%)] backdrop-blur-sm text-center">
+            <div key={item.label} className="p-3 backdrop-blur-sm text-center" style={{ border: `1px solid ${c.borderSubtle}`, background: c.bgCard, boxShadow: c.cardShadow }}>
               <div style={{ fontFamily: '"Inter", system-ui, sans-serif', fontSize: '1.35rem', fontWeight: 800, color: c.amber, lineHeight: 1 }}>
                 {item.metric}
               </div>

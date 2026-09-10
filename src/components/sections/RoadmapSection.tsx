@@ -173,7 +173,7 @@ export function RoadmapSection() {
             <div className="flex items-center gap-2 mb-2">
               <span className="hud-blink" style={{ width: '8px', height: '8px', borderRadius: '50%', background: c.amber, display: 'block', boxShadow: `0 0 8px ${c.amber}` }} />
               <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.4em', color: c.amber, fontWeight: 700 }}>
-                SECTION 05 — STRATEGIC HORIZON
+                SECTION 06 — STRATEGIC HORIZON
               </span>
             </div>
             <h2
@@ -242,11 +242,11 @@ export function RoadmapSection() {
                     onClick={() => setActiveItem(item.id)}
                     className="group relative p-4 border transition-all duration-300 cursor-pointer overflow-hidden backdrop-blur-md"
                     style={{
-                      borderColor: isSelected ? color : `color-mix(in oklch, ${color} 20%, transparent)`,
+                      borderColor: isSelected ? color : c.border,
                       background: isSelected 
-                        ? `color-mix(in oklch, ${color} 10%, oklch(0.14 0.012 250 / 80%))` 
-                        : 'oklch(0.13 0.01 250 / 50%)',
-                      boxShadow: isSelected ? `0 0 20px color-mix(in oklch, ${color} 15%, transparent)` : 'none',
+                        ? (c.isDark ? 'oklch(0.18 0.012 250 / 90%)' : 'oklch(0.995 0.002 250)') 
+                        : c.bgCard,
+                      boxShadow: isSelected ? (c.isDark ? `0 0 20px color-mix(in oklch, ${color} 15%, transparent)` : c.cardShadow) : 'none',
                     }}
                   >
                     {/* Glowing Left Indicator Bar */}
@@ -260,8 +260,8 @@ export function RoadmapSection() {
                         <div 
                           className="p-2.5 rounded-sm border shrink-0 transition-transform duration-300 group-hover:scale-110"
                           style={{ 
-                            borderColor: `color-mix(in oklch, ${color} 40%, transparent)`,
-                            background: `color-mix(in oklch, ${color} 15%, transparent)`,
+                            borderColor: color,
+                            background: c.bgCard,
                             color: color,
                           }}
                         >
@@ -278,9 +278,9 @@ export function RoadmapSection() {
                                 fontSize: '10px', 
                                 letterSpacing: '0.15em', 
                                 padding: '0.1rem 0.4rem',
-                                border: `1px solid color-mix(in oklch, ${color} 30%, transparent)`,
+                                border: `1px solid ${c.border}`,
                                 color: color,
-                                background: `color-mix(in oklch, ${color} 8%, transparent)`,
+                                background: c.bgCard,
                                 textTransform: 'uppercase'
                               }}
                             >
@@ -299,7 +299,7 @@ export function RoadmapSection() {
                           <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', color: color, fontWeight: 700 }}>
                             {item.progress}%
                           </span>
-                          <div className="w-16 h-1 bg-[oklch(0.93_0.005_250_/_10%)] rounded-full overflow-hidden mt-1">
+                          <div className="w-16 h-1 rounded-full overflow-hidden mt-1" style={{ background: c.borderSubtle }}>
                             <div 
                               className="h-full transition-all duration-500" 
                               style={{ width: `${item.progress}%`, background: color }}
@@ -325,8 +325,8 @@ export function RoadmapSection() {
                 className="h-full p-6 lg:p-8 border relative flex flex-col justify-between backdrop-blur-lg"
                 style={{
                   borderColor: getColor(selectedRoadmap.accent),
-                  background: `radial-gradient(circle at top right, color-mix(in oklch, ${getColor(selectedRoadmap.accent)} 12%, transparent), oklch(0.12 0.01 250 / 90%))`,
-                  boxShadow: `0 0 30px color-mix(in oklch, ${getColor(selectedRoadmap.accent)} 10%, transparent)`
+                  background: c.isDark ? 'oklch(0.14 0.012 250 / 90%)' : c.bgElevated,
+                  boxShadow: c.isDark ? `0 0 30px color-mix(in oklch, ${getColor(selectedRoadmap.accent)} 10%, transparent)` : c.cardShadow,
                 }}
               >
                 {/* HUD Corner Reticles */}
@@ -381,7 +381,8 @@ export function RoadmapSection() {
                     {selectedRoadmap.details.map((detail, idx) => (
                       <div 
                         key={idx} 
-                        className="flex items-start gap-2.5 p-2.5 border border-[oklch(0.93_0.005_250_/_8%)] bg-[oklch(0.14_0.012_250_/_50%)]"
+                        className="flex items-start gap-2.5 p-2.5"
+                        style={{ border: `1px solid ${c.border}`, background: c.bgCard }}
                       >
                         <CheckCircle2 size={15} style={{ color: getColor(selectedRoadmap.accent), flexShrink: 0, marginTop: '2px' }} />
                         <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10.5px', color: c.heading, lineHeight: 1.5 }}>
@@ -393,19 +394,19 @@ export function RoadmapSection() {
                 </div>
 
                 {/* Progress Bar Display */}
-                <div className="pt-4 border-t border-[oklch(0.93_0.005_250_/_12%)]">
+                <div className="pt-4" style={{ borderTop: `1px solid ${c.border}` }}>
                   <div className="flex items-center justify-between mb-2" style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px' }}>
                     <span style={{ color: c.body }}>EXECUTION READY:</span>
                     <span style={{ color: getColor(selectedRoadmap.accent), fontWeight: 800 }}>
                       {selectedRoadmap.progress}% COMPLETE
                     </span>
                   </div>
-                  <div className="h-2 bg-[oklch(0.17_0.012_250)] rounded-full overflow-hidden p-0.5 border border-[oklch(0.93_0.005_250_/_10%)]">
+                  <div className="h-2 rounded-full overflow-hidden p-0.5" style={{ background: c.borderSubtle, border: `1px solid ${c.border}` }}>
                     <div 
                       className="h-full rounded-full transition-all duration-700 shadow-sm"
                       style={{ 
                         width: `${selectedRoadmap.progress}%`, 
-                        background: `linear-gradient(90deg, ${getColor(selectedRoadmap.accent)}, oklch(0.95 0.05 250))` 
+                        background: getColor(selectedRoadmap.accent)
                       }}
                     />
                   </div>
@@ -421,7 +422,7 @@ export function RoadmapSection() {
         {/* BLOCK 2: VISUAL HUD COMMITMENT GRID                      */}
         {/* ═══════════════════════════════════════════════════════ */}
         <div>
-          <div className="flex items-center justify-between mb-8 pb-3 border-b border-[oklch(0.93_0.005_250_/_12%)]">
+          <div className="flex items-center justify-between mb-8 pb-3" style={{ borderBottom: `1px solid ${c.border}` }}>
             <div>
               <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '11px', letterSpacing: '0.3em', color: c.green, fontWeight: 700 }}>
                 ◆ GUARANTEED OEM COMMITMENTS
@@ -443,17 +444,19 @@ export function RoadmapSection() {
               return (
                 <div
                   key={item.num}
-                  className="group relative p-6 border bg-[oklch(0.13_0.01_250_/_70%)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden"
+                  className="group relative p-6 border backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden"
                   style={{
-                    borderColor: `color-mix(in oklch, ${color} 25%, transparent)`,
+                    borderColor: c.border,
+                    background: c.bgElevated,
+                    boxShadow: c.cardShadow,
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.borderColor = color
                     e.currentTarget.style.boxShadow = `0 10px 30px color-mix(in oklch, ${color} 15%, transparent)`
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = `color-mix(in oklch, ${color} 25%, transparent)`
-                    e.currentTarget.style.boxShadow = 'none'
+                    e.currentTarget.style.borderColor = c.border
+                    e.currentTarget.style.boxShadow = c.cardShadow
                   }}
                 >
                   {/* Corner Accent */}
@@ -466,14 +469,14 @@ export function RoadmapSection() {
                       <div 
                         className="p-3 border rounded-sm"
                         style={{ 
-                          borderColor: `color-mix(in oklch, ${color} 40%, transparent)`,
-                          background: `color-mix(in oklch, ${color} 12%, transparent)`,
+                          borderColor: color,
+                          background: c.bgCard,
                           color: color,
                         }}
                       >
                         <IconComponent size={22} />
                       </div>
-                      <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16px', fontWeight: 900, color: `color-mix(in oklch, ${color} 40%, white)` }}>
+                      <span style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16px', fontWeight: 900, color: color }}>
                         {item.num}
                       </span>
                     </div>
@@ -485,10 +488,10 @@ export function RoadmapSection() {
                           fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', 
                           fontSize: '10px', 
                           fontWeight: 700, 
-                          letterSpacing: '0.15em',
+                          letterSpacing: '0.15em', 
                           padding: '0.2rem 0.5rem',
-                          border: `1px solid color-mix(in oklch, ${color} 40%, transparent)`,
-                          background: `color-mix(in oklch, ${color} 10%, transparent)`,
+                          border: `1px solid ${c.border}`,
+                          background: c.bgCard,
                           color: color,
                         }}
                       >
@@ -509,7 +512,7 @@ export function RoadmapSection() {
                   </div>
 
                   {/* Highlights Bullet Tags */}
-                  <div className="pt-3 border-t border-[oklch(0.93_0.005_250_/_10%)] space-y-1">
+                  <div className="pt-3 space-y-1" style={{ borderTop: `1px solid ${c.border}` }}>
                     {item.highlights.map((h) => (
                       <div key={h} className="flex items-center gap-1.5" style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '10px', color: c.heading }}>
                         <span style={{ color: color }}>▸</span>

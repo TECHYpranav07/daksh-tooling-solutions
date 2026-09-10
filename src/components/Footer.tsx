@@ -165,7 +165,7 @@ export function Footer() {
                   EMAIL
                 </p>
                 <p style={{ fontFamily: '"JetBrains Mono", ui-monospace, SFMono-Regular, monospace', fontSize: '16.5px', color: c.heading }}>
-                  dakshtooling@gmail.com
+                  SGherade@Dakshtooling.co.in
                 </p>
               </div>
               <div>

@@ -24,7 +24,7 @@ export function ManufacturingJourneySection({ onLaunch }: ManufacturingJourneySe
               marginBottom: '1rem',
             }}
           >
-            SECTION 03
+            SECTION 03 — MANUFACTURING JOURNEY
           </div>
           <h2
             style={{
