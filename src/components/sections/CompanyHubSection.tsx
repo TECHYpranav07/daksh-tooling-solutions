@@ -119,7 +119,7 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
               FIRST-TRIAL APPROVAL
             </div>
             <div style={{ fontFamily: 'monospace', fontSize: '11px', color: c.body, marginTop: '0.2rem' }}>
-              FIRST-TIME-RIGHT MOLD PRECISION
+              FIRST-TIME-RIGHT MOULD PRECISION
             </div>
           </div>
 
@@ -137,7 +137,7 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
               GUARANTEED TOOL LIFE
             </div>
             <div style={{ fontFamily: 'monospace', fontSize: '11px', color: c.body, marginTop: '0.2rem' }}>
-              SHOTS PER MOLD GUARANTEED
+              SHOTS PER MOULD GUARANTEED
             </div>
           </div>
 
@@ -152,7 +152,7 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
               <AnimatedCounter target={250} suffix="+" />
             </div>
             <div style={{ fontFamily: 'monospace', fontSize: '13px', letterSpacing: '0.12em', color: c.heading, fontWeight: 700, marginTop: '0.45rem' }}>
-              MOLDS & DIES DELIVERED
+              MOULDS & DIES DELIVERED
             </div>
             <div style={{ fontFamily: 'monospace', fontSize: '11px', color: c.body, marginTop: '0.2rem' }}>
               IN THE LAST YEAR ALONE
@@ -252,10 +252,10 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
                       ESTABLISHED APRIL 2019 · PIMPRI CHINCHWAD, PUNE
                     </div>
                     <h3 style={{ fontFamily: 'system-ui, sans-serif', fontSize: '1.65rem', fontWeight: 700, color: c.heading, marginBottom: '0.75rem', lineHeight: 1.3 }}>
-                      Innovative Partner for Tooling, Molded & Pressed Parts
+                      Innovative Partner for Tooling, Moulded & Pressed Parts
                     </h3>
                     <p style={{ fontFamily: 'monospace', fontSize: '14.5px', lineHeight: 1.8, color: c.body, marginBottom: '1.5rem' }}>
-                      Daksh Tooling Solutions is a technology-driven manufacturer specializing in high-precision tools, dies, molded and pressed components for automotive, medical, and industrial engineering sectors. Located at Chinchwad, Pune — India's strategic automotive manufacturing hub — we deliver single-source tooling, molding, stamping, and assemblies under one roof.
+                      Daksh Tooling Solutions is a technology-driven manufacturer specializing in high-precision tools, dies, moulded and pressed components for automotive, medical, and industrial engineering sectors. Located at Chinchwad, Pune — India's strategic automotive manufacturing hub — we deliver single-source tooling, moulding, stamping, and assemblies under one roof.
                     </p>
 
                     {/* Mission & Vision */}
@@ -273,7 +273,7 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
                           ◆ VISION
                         </div>
                         <p style={{ fontFamily: 'monospace', fontSize: '13.5px', color: c.body, lineHeight: 1.65 }}>
-                          To be recognized as a benchmark manufacturer in Precision Tools, Molded & Stamped Parts — delivering outstanding products and dependable services that create premium value for our customers through innovation, reliability, and first-time-right performance.
+                          To be recognized as a benchmark manufacturer in Precision Tools, Moulded & Stamped Parts — delivering outstanding products and dependable services that create premium value for our customers through innovation, reliability, and first-time-right performance.
                         </p>
                       </div>
                     </div>
@@ -282,7 +282,7 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
                       {[
                         { icon: '⬡', label: 'ENGINEERING EXCELLENCE', desc: 'Deep domain experience with a focus on precision, performance, and reliability.', color: c.amber },
-                        { icon: '◈', label: 'INTEGRATED MANUFACTURING', desc: 'Single-source delivery of tooling, molding, stamping & assemblies — reducing lead times and risk.', color: c.cyan },
+                        { icon: '◈', label: 'INTEGRATED MANUFACTURING', desc: 'Single-source delivery of tooling, moulding, stamping & assemblies — reducing lead times and risk.', color: c.cyan },
                         { icon: '◇', label: 'COST & VALUE OPTIMIZATION', desc: 'Optimized processes and equipment ensure competitive pricing without compromising quality.', color: c.green },
                         { icon: '△', label: 'CUSTOMER-CENTRIC SERVICE', desc: 'Collaborative project development, responsive support, and on-time delivery commitment.', color: c.amber },
                       ].map((edge) => (
@@ -394,17 +394,17 @@ export function CompanyHubSection({ initialTab = 'about' }: CompanyHubSectionPro
                   {[
                     {
                       num: '01', color: c.cyan,
-                      title: 'Injection Molds & Stamping Dies',
+                      title: 'Injection Moulds & Stamping Dies',
                       icon: '⬡',
-                      desc: 'Precision molds up to 800T, casting dies, and progressive press tools. Built with 5-axis CNC, twin-head EDM, and 200T die spotting (98% blue matching).',
+                      desc: 'Precision moulds up to 800T, casting dies, and progressive press tools. Built with 5-axis CNC, twin-head EDM, and 200T die spotting (98% blue matching).',
                       tags: ['UP TO 800T', 'HOT RUNNER', 'MULTI-CAVITY'],
                     },
                     {
                       num: '02', color: c.amber,
-                      title: 'Molding & Over-Molding',
+                      title: 'Moulding & Over-Moulding',
                       icon: '◈',
-                      desc: 'Horizontal & vertical injection molding (30T–180T). Specialised in rotary vertical over-molding of stamped metal terminals into engineering plastic bodies.',
-                      tags: ['INSERT MOLD', 'ROTARY', '2-SHOT'],
+                      desc: 'Horizontal & vertical injection moulding (30T–180T). Specialised in rotary vertical over-moulding of stamped metal terminals into engineering plastic bodies.',
+                      tags: ['INSERT MOULD', 'ROTARY', '2-SHOT'],
                     },
                     {
                       num: '03', color: c.green,

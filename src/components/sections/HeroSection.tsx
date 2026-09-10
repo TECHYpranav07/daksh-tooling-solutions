@@ -162,7 +162,7 @@ export function HeroSection() {
             letterSpacing: '0.02em',
           }}
         >
-          Single-source high-precision manufacturer for <span style={{ color: c.heading, fontWeight: 600 }}>Injection Molds, Stamping Dies, Hot Chamber Dies, Cold Chamber Dies & Over-Molded Parts</span> — engineered to micron tolerances for Automotive, Medical & Engineering OEMs.
+          Single-source high-precision manufacturer for <span style={{ color: c.heading, fontWeight: 600 }}>Injection Moulds, Stamping Dies, Hot Chamber Dies, Cold Chamber Dies & Over-Moulded Parts</span> — engineered to micron tolerances for Automotive, Medical & Engineering OEMs.
         </p>
 
         {/* Capability Pill Bar */}
@@ -170,7 +170,7 @@ export function HeroSection() {
           {[
             '5-AXIS CNC MILLING',
             '200T SPOTTING (98% MATCH)',
-            'ROTARY VERTICAL OVER-MOLDING',
+            'ROTARY VERTICAL OVER-MOULDING',
             'PROGRESSIVE STAMPING',
             'CMM & 3D LASER SCAN',
           ].map((tag) => (

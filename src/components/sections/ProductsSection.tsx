@@ -78,15 +78,15 @@ const CATEGORY_SECTIONS: CategorySectionConfig[] = [
   {
     key: 'molded',
     code: '03',
-    title: 'MOLDED COMPONENTS',
-    desc: 'Precision horizontal & vertical injection molded engineering parts',
+    title: 'MOULDED COMPONENTS',
+    desc: 'Precision horizontal & vertical injection moulded engineering parts',
     items: PRODUCTS.filter((p) => p.category === 'molded'),
   },
   {
     key: 'insert-molded',
     code: '04',
-    title: 'INSERT MOLDED COMPONENTS',
-    desc: 'Integrated metal-into-plastic insert molded assemblies',
+    title: 'INSERT MOULDED COMPONENTS',
+    desc: 'Integrated metal-into-plastic insert moulded assemblies',
     items: PRODUCTS.filter((p) => p.category === 'insert-molded'),
   },
 ]
@@ -318,7 +318,7 @@ export function ProductsSection() {
                   letterSpacing: '0.05em',
                 }}
               >
-                Comprehensive showcase of manufactured precision tooling, stamped parts, and molded assemblies.
+                Comprehensive showcase of manufactured precision tooling, stamped parts, and moulded assemblies.
               </p>
             </div>
             <div
