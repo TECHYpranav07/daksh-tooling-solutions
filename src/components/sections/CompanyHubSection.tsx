@@ -40,9 +40,9 @@ function AnimatedCounter({ target, suffix = '', prefix = '', duration = 2000 }: 
 const OEM_PARTNERS = [
   { name: 'TOYOTA KIRLOSKAR', sector: 'AUTOMOTIVE OEM', logo: '/images/clients/page_20_img_7_267x189.jpeg' },
   { name: 'SPARK MINDA', sector: 'TIER-1 AUTO COMPONENTS', logo: '/images/clients/page_20_img_2_319x180.jpeg' },
-  { name: 'PSA GROUPE', sector: 'GLOBAL AUTOMOTIVE', logo: '/images/clients/page_20_img_5_292x173.jpeg' },
+  { name: 'PSA GROUP', sector: 'GLOBAL AUTOMOTIVE', logo: '/images/clients/page_20_img_5_292x173.jpeg' },
   { name: 'TRW', sector: 'SAFETY SYSTEMS', logo: '/images/clients/page_20_img_8_225x225.jpeg' },
-  { name: 'MINDA VAST', sector: 'ACCESS SYSTEMS', logo: '/images/clients/page_20_img_4_115x141.jpeg' },
+  { name: 'MINDA VAST', sector: 'ACCESS SYSTEMS', logo: '/images/clients/minda_vast.png' },
   { name: 'TREND TECHNOLOGIES', sector: 'ELECTRONICS MFG', logo: '/images/clients/page_20_img_6_386x130.jpeg' },
   { name: 'PREMIER SEALS', sector: 'SEALING SOLUTIONS', logo: '/images/clients/page_20_img_3_317x176.jpeg' },
 ]
