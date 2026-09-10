@@ -8,19 +8,19 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  theme: 'dark',
+  theme: 'light',
   toggleTheme: () => {},
 })
 
-const STORAGE_KEY = 'dts-theme'
+const STORAGE_KEY = 'dts-theme-v2'
 
 function getInitialTheme(): Theme {
-  if (typeof window === 'undefined') return 'dark'
+  if (typeof window === 'undefined') return 'light'
   try {
     const stored = localStorage.getItem(STORAGE_KEY)
     if (stored === 'light' || stored === 'dark') return stored
   } catch { /* ignore */ }
-  return 'dark'
+  return 'light'
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {

@@ -33,7 +33,6 @@
 /* ═══════════════════════════════════════════════════════════════
    DARK THEME (default)
    ═══════════════════════════════════════════════════════════════ */
-:root,
 :root.dark {
   color-scheme: dark;
   --background: oklch(0.13 0.01 250);
@@ -97,6 +96,7 @@
    Borders = Crisp metallic slate (oklch 0.79), Text = Deep Charcoal (oklch 0.12),
    Accents = Precision Industrial Blue & Amber
    ═══════════════════════════════════════════════════════════════ */
+:root,
 :root.light {
   color-scheme: light;
   /* Page base: shaded cool architectural slate */
